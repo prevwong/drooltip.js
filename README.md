@@ -19,7 +19,7 @@ Prev Wong	@prevwong 	imprev.co
 
 ## Overview
 
-Drooltip.js is a lightweight native-js plugin/extension that allows you to create beutiful, customizable and intelligent tooltips, capable of showing anything from simple text, loading dynamic content and loading entire HTML elements!
+Drooltip.js is a lightweight native-js plugin/extension that allows you to create beautiful, customizable and intelligent tooltips, capable of showing anything from simple text, loading dynamic content and loading entire HTML elements!
 
 ## Installation & Usage
 
