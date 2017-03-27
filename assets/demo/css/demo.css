@@ -87,6 +87,9 @@ h1, h2, h3 {
             #navigation nav ul li a.active:before {
               background: #2175ff; }
 
+div#social_buttons {
+  padding: 20px 50px; }
+
 a.button {
   float: left;
   width: 100%;
