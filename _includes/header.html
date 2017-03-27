@@ -1,0 +1,47 @@
+<sidebar id = "navigation" class = "large-4 medium-12 small-12 columns float-left">
+    <div>
+    <nav id = "nav">
+        <div id = "author_links">
+            <ul>
+                <li><a target="_blank" href="https://imprev.co"><i class="fa fa-user-circle-o"></i></a></li>
+                <li><a target="_blank" href="https://twitter.com/prevwong"><i class="fa fa-twitter"></i></a></li>
+                <li><a target="_blank" href="https://dribbble.com/prevwong"><i class="fa fa-dribbble"></i></a></li>
+            </ul>
+        </div>
+        <span id = "logo">
+            <h2>{{ site.title | escape }}<span>v{{ site.version }}</span></h2>
+            <span class = "author">Developed by <i class="defaultTooltip" title="#author_links" data-options="trigger:hover;position:bottom;">Prev Wong</i></span>
+        </span>
+        <ul>    
+
+            <div id = "standard" >
+            {% assign posts = site.posts | sort: 'index' %}
+            {% for post in posts %}
+                <li><a class="navigationalLinks" href="#{{ post.title | escape | downcase }}">{{ post.title | escape }}</a></li>
+            {% endfor %}
+            </div>
+
+            <div style="padding:0 50px" id = "fallback">
+            <span>Jump to</span>
+            <select id = "mobile_fallback">
+                {% for post in posts %}
+                <option value="{{ post.title | escape | downcase }}">{{ post.title | escape }}</option>
+                {% endfor %}
+            </select>
+            </div>
+             <div style="float:left;width:100%" id = "social_buttons">
+
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=556703841029801";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    </div>
+    </div>
+        </ul>
+    </nav>
+     
+</sidebar>

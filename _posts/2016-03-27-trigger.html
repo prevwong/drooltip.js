@@ -1,0 +1,56 @@
+---
+title: Triggers
+index: 6
+---
+
+<p>So as all tooltips, Drooltips comes with 2 trigger types you can use: hover and click. But what if you want to make your own ? It's pretty simple &amp; is very similar to defining custom animatons.</p>
+<ul class="steps">
+  <li>
+       <span class="instruction">1. Specify the name of your custom trigger</span><pre class="js">
+       <code>var tooltip = new Drooltip({
+       ...
+       "trigger": "myCustomTrigger",
+       ...
+  });</code> </pre>
+   </li>
+ <li>
+     <span class="instruction">
+       2. Create the relevant function; The data object will be passed to your function
+       <ul class = "param_specification">
+            <li><span>data</span>Object {<i class="params" title="Unique tooltip id">id</i>, <i class="params" title="Target DOM element">source</i>, <i class="params" title="Tooltip DOM element">tooltip</i>, <i class="params" title="Options associated with tooltip">options</i>}</li>
+       </ul>
+     </span>
+      <pre class="js">
+        <code>
+    function myCustomTrigger(data){
+      var tooltipDom = data["tooltip"]
+      var sourceDom = data["source"]
+      tooltip.hideTooltip(tooltipDom) // -> instance.hideTooltip()
+      var timeout, exit = 0
+      window.addEventListener("mouseover", function(e){   
+        if ( data["source"].contains(e.target) || data["tooltip"].contains(e.target) ){
+          clearTimeout(exit)
+        } else {
+          exit = setTimeout(function(){
+            if ( data["tooltip"].classList.contains("open") ) {
+              tooltip.deanimateTooltip(data)  // -> instance.deanimateTooltip()
+            }
+          }, 1000);
+        }
+      })
+
+      data["source"].addEventListener("mouseenter", function(e){   
+        sourceDom.querySelector(".countdown").innerHTML = "Wait for 1 second";
+        timeout = setTimeout(function(){
+          tooltip.animateTooltip(data) // -> instance.animateTooltip()
+          sourceDom.querySelector(".countdown").innerHTML = "Boom!";
+        }, 1000);
+      });
+
+      data["source"].addEventListener("mouseleave", function(e){   
+        sourceDom.querySelector(".countdown").innerHTML = "";
+        clearTimeout(timeout)
+      });
+    }
+        </code></pre><span class="caption_code">This code is used to perform the Custom Trigger demo shown</span>
+ </li>

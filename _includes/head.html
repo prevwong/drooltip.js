@@ -1,0 +1,26 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+
+  <link rel="stylesheet" href="{{ "/assets/drooltip/css/drooltip.css" | relative_url }}"/>
+  <link rel="stylesheet" href="{{ "/assets/demo/css/foundation.css" | relative_url }}"/>
+  <link rel="stylesheet" href="{{ "/assets/demo/css/demo.css" | relative_url }}"/>
+  <link rel="stylesheet" href="{{ "/assets/demo/css/font-awesome.min.css" | relative_url }}"/>
+  <link rel="stylesheet" href="{{ "/assets/demo/css/solarized-dark.css" | relative_url }}"/>
+  <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600" rel="stylesheet">
+
+  <script type="text/javascript" src="{{ "/assets/demo/js/highlight.pack.js" | relative_url }}"></script>
+  
+  {% if jekyll.environment == 'production' and site.google_analytics %}
+  {% include google-analytics.html %}
+  {% endif %}
+</head>

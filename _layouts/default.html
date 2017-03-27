@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {% include head.html %}
+
+  <body>
+   <div class = 'row'>
+   <div id = "wrapper">
+    
+   {% include header.html %}
+    <main style="padding:0;" class = "large-8 medium-10 small-12 large-uncentered medium-centered small-8 columns" >
+      <div id = "content">
+        {{ content }}
+        <footer class = "main_footer">
+          <h4>
+            Made with <i class="fa fa-heart"></i> in Kuala Lumpur, Malaysia <br />
+            Designed &amp; Developed by <a href="https://imprev.co" target="_blank">Prev Wong</a> <br />
+            Drooltip.js is licensed under MIT
+          </h4>
+          <ul class = "social">
+            <li><a href="https://imprev.co" class="portfolio" target="_blank"><i class = "fa fa-user-circle-o"></i></a></li>
+             <li><a href="https://twitter.com/prevwong" class="twitter" target="_blank"><i class = "fa fa-twitter"></i></a></li>
+              <li><a href="https://github.com" class="github" target="_blank"><i class = "fa fa-github"></i></a></li>
+          </ul>
+        </footer>
+      </div>
+    </main>
+
+    
+    </div>
+    </div>
+    {% include footer.html %}
+   
+  </body>
+
+</html>

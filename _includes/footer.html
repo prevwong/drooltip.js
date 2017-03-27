@@ -1,0 +1,167 @@
+<script type="text/javascript" src="{{ "assets/drooltip/js/drooltip.js" | relative_url }}"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+
+var navigationalLinks = document.querySelectorAll('.navigationalLinks')
+
+function clickFn(){
+	[].map.call(navigationalLinks, function(navigationalLink) { navigationalLink.classList.remove("active") });
+    this.classList.add("active");
+}
+
+
+[].map.call(navigationalLinks, function(navigationalLink) {
+    navigationalLink.addEventListener("click", clickFn, false);
+});
+var defaultDrool = new Drooltip({
+  "element" : ".defaultTooltip",
+})
+var animation = new Drooltip({
+  "element" : ".animation",
+})
+var params = new Drooltip({
+    "element" : ".params, .fnParams",
+    "background" : "#fff",
+    "color" : "#2175ff",
+    "animation" : "fade",
+    "trigger" : "hover"
+});
+
+var positioningTooltips = new Drooltip({
+	"element" : ".positioningTip",
+	"background" : "#222",
+	"color" : "#fff",
+	"animation" : "fade",
+	"trigger" : "none",
+});
+
+
+
+function overviewCustom(data){
+var tooltipDom = data["tooltip"]
+var sourceDom = data["source"]
+defaultDrool.hideTooltip(tooltipDom)
+
+
+
+var timeout, exit = 0
+window.addEventListener("mouseover", function(e){   
+    if ( data["source"].contains(e.target) || data["tooltip"].contains(e.target) ){
+        clearTimeout(exit)
+    } else {
+        exit = setTimeout(function(){
+
+            if ( data["tooltip"].classList.contains("open") ) {
+                
+                defaultDrool.deanimateTooltip(data)
+            }
+        }, 200);
+    }
+})
+
+data["source"].addEventListener("mouseenter", function(e){   
+      sourceDom.querySelector(".countdown").innerHTML = "Wait for 1 second";
+      timeout = setTimeout(function(){
+        defaultDrool.animateTooltip(data)
+        sourceDom.querySelector(".countdown").innerHTML = "Boom!";
+      }, 1000);
+});
+
+data["source"].addEventListener("mouseleave", function(e){   
+    sourceDom.querySelector(".countdown").innerHTML = "";
+      clearTimeout(timeout)
+});
+}
+
+
+var positionScreenTips = function(){
+	setTimeout(function(){
+	for ( var i in positioningTooltips["tooltips"] ) {
+	positioningTooltips.updatePosition(positioningTooltips["tooltips"][i])
+	}
+	positionScreenTips()
+	}, 10)
+}
+
+var screenResize = function(){
+	setTimeout(function(){
+	 document.querySelector('.screen').classList.add("animate")
+	 setTimeout(function(){
+	     document.querySelector('.screen').classList.add("animate2")
+	     setTimeout(function(){
+	         document.querySelector('.screen').classList.remove("animate", "animate2")
+	         screenResize()
+	     }, 2000)
+	 }, 2000)
+	}, 1000)
+}
+positionScreenTips();
+screenResize();
+
+function isScrolledIntoView(el) {
+    var elemTop = el.getBoundingClientRect().top;
+    var elemBottom = el.getBoundingClientRect().bottom;
+
+    var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
+    return isVisible;
+}
+
+var current_scroll = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+
+if ( current_scroll === 0 ){
+	document.querySelector('.navigationalLinks[href="#overview"]').classList.add("active")
+}
+
+window.addEventListener("scroll", function(){
+
+	var current_scroll = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    var sidebar = document.getElementById("navigation")
+    var sidebarTop = sidebar.getBoundingClientRect().top
+
+   if ( window.innerHeight > sidebar.clientHeight && window.innerWidth > 1050 ) { 
+	   	sidebar.style.transform = "translateY("+ current_scroll +"px)"
+   } else {
+   		sidebar.style.transform = "translateY(0px)"
+   }
+
+   addLinkActive();
+})
+
+
+var visibleY = function(el){
+	  var rect = el.getBoundingClientRect(), top = rect.top, height = rect.height, 
+	    el = el.parentNode;
+	  do {
+	    rect = el.getBoundingClientRect();
+	    if (top <= rect.bottom === false) return false;
+	    // Check if the element is out of view due to a container scrolling
+	    if ((top + height) <= rect.top) return false
+	    el = el.parentNode;
+	  } while (el != document.body);
+	  // Check its within the document viewport
+	  return top <= document.documentElement.clientHeight - 300;
+	};
+
+function addLinkActive() {
+   var sections = document.querySelectorAll(".sections")
+   for ( var i=0; i < sections.length; i ++) {
+   		if ( visibleY(sections[i]) === true ) {
+   			[].map.call(navigationalLinks, function(navigationalLink) { navigationalLink.classList.remove("active") });
+   			document.querySelector('.navigationalLinks[href="#'+ sections[i].getAttribute("id")+'"]').classList.add("active")
+   		}
+   }
+}
+window.addEventListener("resize", function(){
+	 var sidebar = document.getElementById("navigation")
+	 if (  window.innerWidth < 1050 ) { 
+	 	sidebar.style.transform = "translateY(0px)"
+	 }
+})
+
+var select = document.getElementById("mobile_fallback")
+select.addEventListener("change", function(){
+    window.location.hash = this.getElementsByTagName('option')[this.selectedIndex].value;
+});
+
+</script>

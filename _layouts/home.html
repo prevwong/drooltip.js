@@ -1,0 +1,11 @@
+---
+layout: default
+---
+
+{% assign posts = site.posts | sort: 'index' %}
+{% for post in posts %}
+  <div id = "{{ post.title | escape | downcase }}" class = "sections">
+    <h2 class = 'title'>{{ forloop.index }}. {{ post.title | escape }}</h2>
+    {{ post.content }}
+  </div>
+{% endfor %}
