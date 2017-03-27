@@ -19,7 +19,7 @@ Prev Wong	@prevwong 	imprev.co
 
 ## Overview
 
-Drooltip.js is a lightweight native-js plugin/extension that allows you to create beutiful, customizable and intelligent tooltips, capable of showing anything from simple text to an entire elements.
+Drooltip.js is a lightweight native-js plugin/extension that allows you to create beutiful, customizable and intelligent tooltips, capable of showing anything from simple text, loading dynamic content and loading entire HTML elements!
 
 ## Installation & Usage
 
@@ -27,15 +27,15 @@ Documentation and Demos are [here](https://prevwong.github.io/drooltip.js/)
 
 ## Q&A
 
-* Q: What is it's origin story
+* Q: Why did you make this ?
   A: Twas a boring day.
 
 * Q: There're already many tooltips plugins out there, what is this for ?
-  A: I just wanted to share my version of tooltips as a contribution to the open-source community
+  A: I just wanted to share my version of tooltips as a contribution to the open-source community.
 
 
 * Q: Is this plugin perfect/flawless
-  A: Of course not. As it is still in beta, it is clear that there may most definitely be some bugs
+  A: Of course not. As it is still in beta, it is clear that there may most definitely be some bugs.
 
 
 ## History
