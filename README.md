@@ -13,7 +13,7 @@ github.com/prevwong/drooltip.js
 Prev Wong	@prevwong 	imprev.co
 </code>
 </pre>
-[![Code Climate](https://codeclimate.com/repos/58d12235def0156af20013d8/badges/8a7859e2ddbca001139f/gpa.svg)](https://codeclimate.com/repos/58d12235def0156af20013d8/feed)
+[![Code Climate](https://codeclimate.com/github/prevwong/drooltip.js/badges/gpa.svg)](https://codeclimate.com/github/prevwong/drooltip.js)
 [![codebeat badge](https://codebeat.co/badges/feba30b2-1759-4472-b6af-997c9c46f952)](https://codebeat.co/a/prevwong/projects/github-com-prevwong-drooltip-js-master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/db9b8d8043c84f1ca7cd9686daae5717)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=prevwong/drooltip.js&amp;utm_campaign=Badge_Grade)
 
