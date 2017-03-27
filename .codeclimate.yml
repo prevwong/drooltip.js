@@ -1,0 +1,25 @@
+---
+engines:
+  csslint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+      - python
+      - php
+  eslint:
+    enabled: true
+    checks:
+      complexity:
+        enabled: false
+      guard-for-in:
+        enabled: false
+  fixme:
+    enabled: true
+ratings:
+  paths:
+  - "package/js/"
+exclude_paths: ["demo/"]
