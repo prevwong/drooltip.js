@@ -111,6 +111,13 @@ h1,h2,h3 { font-family: Source Sans Pro, serif; }
 
 div#social_buttons {
     padding: 20px 50px;
+    .fb-share-button, .twitter-share-button {
+    	float:left;
+    }
+    .twitter-share-button { 
+    	margin-top:5px;
+    	margin-left:12px;
+    }
 }
 
 

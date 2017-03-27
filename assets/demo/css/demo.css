@@ -89,6 +89,11 @@ h1, h2, h3 {
 
 div#social_buttons {
   padding: 20px 50px; }
+  div#social_buttons .fb-share-button, div#social_buttons .twitter-share-button {
+    float: left; }
+  div#social_buttons .twitter-share-button {
+    margin-top: 5px;
+    margin-left: 12px; }
 
 a.button {
   float: left;
