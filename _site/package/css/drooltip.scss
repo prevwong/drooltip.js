@@ -1,0 +1,238 @@
+.building {
+	float:left;
+}
+
+@mixin transition() {
+ -webkit-transition:.4s cubic-bezier(.19,1,.22,1);
+-moz-transition:.4s cubic-bezier(.19,1,.22,1);
+-o-transition:.4s cubic-bezier(.19,1,.22,1);
+transition: .4s cubic-bezier(.19,1,.22,1);
+}
+
+.drooltipLoaderWrapper { 
+    float:left;width:15px; height:15px; padding:2px; left:50%;
+    position:relative;
+    transform:translateX(-50%);
+}
+.drooltipLoader {
+    border-radius: 100%;
+    display:block;
+    width:100%;
+    height:100%;
+    animation-name: drooltipPreloader;
+    animation-duration: 0.4s;
+    animation-fill-mode:forwards;
+    animation-iteration-count: infinite;
+    @include transition();
+    &.stop {
+        animation:none;
+        transform:scale(0);
+    }
+}
+
+.drooltip {
+	 position: absolute;
+    padding: 5px 20px;
+    font-size: 16px;
+    color:#fff;
+    z-index:99999;
+    max-width:300px;
+    transform-origin: center 100%;
+    opacity:0;
+    .bg {
+        position:absolute;
+        top:0;
+        left:0;
+        bottom:0;
+        width:100%;
+        height:100%;
+        z-index:0;
+        box-shadow: 0 1px 42px -3px rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+        transform-origin:inherit;
+    }   
+    .content {
+        position:relative;
+        float:left;
+        width:100%;
+        z-index:1;
+        transform-origin:inherit;
+        @include transition();
+        &.showDynamic {
+            opacity:0;
+        }
+    } 
+
+    &.drooltipMaterial {
+        transform-origin: center center;
+        .bg {
+            height:0;
+            @include transition;
+            box-shadow: none;
+            transform:scale(0);
+
+        }
+        .content {
+            @include transition;
+            transform:scale(0) translateY(20px);
+            opacity:0;
+        }
+        &.animate {
+            .bg {
+                height:100%;
+                box-shadow: 0 1px 42px -3px rgba(0, 0, 0, 0.3);
+                transform:scale(1);
+            }
+            .content {
+                transform:scale(1) translateY(0);
+                opacity:1;
+            }
+        }
+    }
+
+    &.loaded { 
+        @include transition();
+        opacity:1;
+    }
+    &.hideTooltip {
+        display:none;
+        opacity:0;
+        cursor-pointer:none;
+        pointer-events:none;
+        &.fake {
+            display:block; 
+            opacity:0;
+            pointer-events:none;
+            cursor:none;
+            transition:none;
+        }
+        
+    }
+    &.drooltipBounce {
+		animation-name: drooltipBounce;
+		animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+		&.out {
+	    	animation-name: drooltipBounceOut;
+	    }
+    }
+
+    &.drooltipFloat {
+        animation-name: drooltipFloatVertical;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        &.right, &.left {
+            animation-name: drooltipFloatHorizontal;
+        }
+    }
+
+    &.drooltipFade {
+		animation-name: drooltipFade;
+        animation-duration: 0.2s;
+		animation-fill-mode: forwards;
+		&.out {
+	    	animation-name: drooltipFadeOut;
+	    }
+    }
+
+    &:after {
+    	content: ' ';
+	    height: 0;
+	    position: absolute;
+	    width: 0;
+	    border: 6px solid transparent;
+	    border-top-color: inherit;
+	    /* left: 255px; */
+	    z-index: 2;
+	    bottom: 0;
+	    left: 50%;
+	    transform: translateX(-50%);
+        opacity:0;
+        transition: 0.2s ease-in-out;
+    }
+    &.showArrow {
+       &:after { bottom: -11px; opacity:1; }
+    }
+    &.bottom {
+    	transform-origin: center 0;
+    	&:after {
+    		bottom: auto;
+    		top:0;
+    		border-top-color: transparent;
+    		border-bottom-color:inherit;
+    	}
+        &.showArrow {
+           &:after { top: -11px; }
+        }
+    }
+    &.right {
+    	transform-origin: 0 center;
+    	&:after {
+    		bottom: auto;
+    		left:0;
+    		border-top-color: transparent;
+    		border-right-color:inherit;
+    		top:50%;
+    		transform:translateY(-50%);
+    	}
+        &.showArrow {
+           &:after { left: -11px; }
+        }
+    }
+    &.left {
+    	transform-origin: 100% center;
+    	&:after {
+    		left:auto;
+    		bottom: auto;
+    		border-top-color: transparent;
+    		border-left-color:inherit;
+    		top:50%;
+    		transform:translateY(-50%);
+            right:0;
+    	}
+        &.showArrow {
+           &:after { right: -11px; }
+        }
+    }
+}
+
+@keyframes drooltipPreloader {
+    0%   { transform:scale(0); }
+    50%  { transform:scale(1.1); }
+    100% { transform:scale(1); }
+}
+
+@keyframes drooltipBounce {
+    0%   { transform:scale(0); }
+    50%  { transform:scale(1.1); }
+    100% { transform:scale(1); }
+}
+
+@keyframes drooltipBounceOut {
+    0%   { transform:scale(1); }
+    50%  { transform:scale(1.1); }
+    100% { transform:scale(0); }
+}
+
+@keyframes drooltipFade {
+    0%   { opacity:0; }
+    100% { opacity:1; }
+}
+@keyframes drooltipFadeOut {
+    0%   { opacity:1; }
+    100% { opacity:0; }
+}
+
+@keyframes drooltipFloatVertical {
+    0%   { transform: translateY(0px); }
+    50%   { transform:  translateY(5px); }
+    100% { transform:  translateY(0px); }
+}
+
+@keyframes drooltipFloatHorizontal {
+    0%   { transform: translateX(0px); }
+    50%   { transform:  translateX(5px); }
+    100% { transform:  translateX(0px); }
+}
+
+

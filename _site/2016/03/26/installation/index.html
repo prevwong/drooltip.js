@@ -1,0 +1,26 @@
+<ul class="steps">
+   <li>
+       <span class="instruction">Include Drooltip.js in your project</span>
+       
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"/path/to/drooltip.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+
+   </li>
+    <li>
+       <span class="instruction">... and the CSS file too</span>
+       
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">src=</span><span class="s">"/path/to/drooltip.css"</span> <span class="nt">/&gt;</span></code></pre></figure>
+
+   </li>
+    <li>
+       <span class="instruction">Add a class/id and a title attribute with the contents of your tooltip to the element you wish the tooltip to appear at</span>
+       
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"myTooltip"</span> <span class="na">title=</span><span class="s">"Hi there!"</span><span class="nt">&gt;</span> I am some random text <span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+   </li>
+    <li>
+       <span class="instruction">Initiate a Drooltip instance in your js file</span>
+       
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">tooltip</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Drooltip</span><span class="p">({</span><span class="s2">"element"</span> <span class="p">:</span> <span class="s2">".myTooltip"</span><span class="p">});</span></code></pre></figure>
+
+   </li>
+</ul>

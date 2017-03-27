@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Drooltip.js</title>
+  <meta name="description" content="Minimalistic and Powerful native-js Tooltips">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/">
+  <link rel="alternate" type="application/rss+xml" title="Drooltip.js" href="/feed.xml">
+
+  <link rel="stylesheet" href="/assets/drooltip/css/drooltip.css"/>
+  <link rel="stylesheet" href="/assets/demo/css/foundation.css"/>
+  <link rel="stylesheet" href="/assets/demo/css/demo.css"/>
+  <link rel="stylesheet" href="/assets/demo/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="/assets/demo/css/solarized-dark.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600" rel="stylesheet">
+
+  <script type="text/javascript" src="/assets/demo/js/highlight.pack.js"></script>
+  
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-96260770-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+  
+</head>
+
+
+  <body>
+   <div class = 'row'>
+   <div id = "wrapper">
+    
+   <sidebar id = "navigation" class = "large-4 medium-12 small-12 columns float-left">
+    <div>
+    <nav id = "nav">
+        <div id = "author_links">
+            <ul>
+                <li><a target="_blank" href="https://imprev.co"><i class="fa fa-user-circle-o"></i></a></li>
+                <li><a target="_blank" href="https://twitter.com/prevwong"><i class="fa fa-twitter"></i></a></li>
+                <li><a target="_blank" href="https://dribbble.com/prevwong"><i class="fa fa-dribbble"></i></a></li>
+            </ul>
+        </div>
+        <span id = "logo">
+            <h2>Drooltip.js<span>v1.0.0 &beta;</span></h2>
+            <span class = "author">Developed by <i class="defaultTooltip" title="#author_links" data-options="trigger:hover;position:bottom;">Prev Wong</i></span>
+        </span>
+        <ul>    
+
+            <div id = "standard" >
+            
+            
+                <li><a class="navigationalLinks" href="#overview">Overview</a></li>
+            
+                <li><a class="navigationalLinks" href="#installation">Installation</a></li>
+            
+                <li><a class="navigationalLinks" href="#customization">Customization</a></li>
+            
+                <li><a class="navigationalLinks" href="#animations">Animations</a></li>
+            
+                <li><a class="navigationalLinks" href="#positioning">Positioning</a></li>
+            
+                <li><a class="navigationalLinks" href="#triggers">Triggers</a></li>
+            
+                <li><a class="navigationalLinks" href="#ajax/json">Ajax/Json</a></li>
+            
+                <li><a class="navigationalLinks" href="#useful functions">Useful functions</a></li>
+            
+            </div>
+
+            <div style="padding:0 50px" id = "fallback">
+            <span>Jump to</span>
+            <select id = "mobile_fallback">
+                
+                <option value="overview">Overview</option>
+                
+                <option value="installation">Installation</option>
+                
+                <option value="customization">Customization</option>
+                
+                <option value="animations">Animations</option>
+                
+                <option value="positioning">Positioning</option>
+                
+                <option value="triggers">Triggers</option>
+                
+                <option value="ajax/json">Ajax/Json</option>
+                
+                <option value="useful functions">Useful functions</option>
+                
+            </select>
+            </div>
+             <div style="float:left;width:100%" id = "social_buttons">
+
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=556703841029801";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    </div>
+    </div>
+        </ul>
+    </nav>
+     
+</sidebar>
+    <main style="padding:0;" class = "large-8 medium-10 small-12 large-uncentered medium-centered small-8 columns" >
+      <div id = "content">
+        
+
+  <div id = "overview" class = "sections">
+    <h2 class = 'title'>1. Overview</h2>
+    <p>Drooltip is a native javascript <span data-options="position:right" class="hover" title="Hello World!">plugin</span> that is aimed to provide developers custom tooltips that are beautiful, powerful &amp; extensible. It is pretty lightweight too, without too much bloat &amp; unnecessary features.</p>
+<div style="margin:15px 0 50px 0;float:left;width:100%; border-top:1px solid; border-bottom:1px solid; border-color:#ddd; padding:20px 0;" id="actions">
+    <div id="grab_wrapper" style="padding-left:0;" class="columns medium-8 small-12 float-left">
+        <a target="_blank" href="https://github.com/prevwong/drooltip.js/" class="button">
+            <div class="bg"></div>
+            <div class="content">Grab the source!</div> <i class="icon fa fa-github"></i></a>
+    </div>
+    <div id="donate_wrapper" style="padding-right:0" class="columns medium-4 small-12 float-left">
+        <a id="donate" class="coffee button">
+            <div class="bg"></div>
+            <div class="content">Buy me coffee</div>
+        </a>
+    </div>
+</div>
+<div id="element">
+    <img src="/assets/demo/img/messenger.png" />
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac lacus elit. Maecenas aliquet augue sodales, vulputate odio nec, facilisis felis. </p>
+</div>
+<ul class="demos">
+	<span>Demos</span>
+	<li title="I am with default options" class="defaultTooltip columns medium-4"><span><strong>Hover me</strong></span></li>
+	<li data-options="background:#fff;color:#2175ff;trigger:overviewCustom; " title="Hey there" class="defaultTooltip columns medium-4"><span><strong>Custom triggers</strong></span><i class="countdown"></i></li>
+	<li title="#element" data-options="position:left" class="defaultTooltip columns medium-4"><span><strong>HTML elements</strong></span></li>
+	<li title=":jsonp[https://freegeoip.net/json/imprev.co,country_name]:" data-options="position:left;" class="defaultTooltip columns medium-4"><span><strong>AJAX/Jsonp</strong></span><i class="countdown"></i></li>
+	<li data-options="position:right" title="I can position myself pretty well" class="defaultTooltip columns medium-4"><span><strong>Smart positioning</strong></span></li>
+	<li data-options="animation:material;" title="This is a custom animation" class="defaultTooltip columns medium-4"><span><strong>Custom animations</strong></span></li>
+</ul>
+
+  </div>
+
+  <div id = "installation" class = "sections">
+    <h2 class = 'title'>2. Installation</h2>
+    <ul class="steps">
+   <li>
+       <span class="instruction">Include Drooltip.js in your project</span>
+       
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"/path/to/drooltip.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+
+   </li>
+    <li>
+       <span class="instruction">... and the CSS file too</span>
+       
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">src=</span><span class="s">"/path/to/drooltip.css"</span> <span class="nt">/&gt;</span></code></pre></figure>
+
+   </li>
+    <li>
+       <span class="instruction">Add a class/id and a title attribute with the contents of your tooltip to the element you wish the tooltip to appear at</span>
+       
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"myTooltip"</span> <span class="na">title=</span><span class="s">"Hi there!"</span><span class="nt">&gt;</span> I am some random text <span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+   </li>
+    <li>
+       <span class="instruction">Initiate a Drooltip instance in your js file</span>
+       
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">tooltip</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Drooltip</span><span class="p">({</span><span class="s2">"element"</span> <span class="p">:</span> <span class="s2">".myTooltip"</span><span class="p">});</span></code></pre></figure>
+
+   </li>
+</ul>
+
+  </div>
+
+  <div id = "customization" class = "sections">
+    <h2 class = 'title'>3. Customization</h2>
+    <ul class="steps">
+   <li>
+       <span class="instruction">You can define the options right in the initialization method</span><pre class="js">
+       <code>var tooltip = new Drooltip({
+       "element" : ".myTooltip",
+       "trigger" : "hover",
+       "position" : "top",
+       "background" : "#2175ff",
+       "color" : "#fff",
+       "animation": "bounce",
+       "content" : null,
+       "callback" : null
+  });</code> </pre>
+   </li>
+   <li>
+       <span class="instruction">or you can overwrite the options set in the initialization by manually adding it to the <span class="tags">data-options</span> attribute of desired elements</span><pre class="html">
+       <code>&lt;span class="myTooltip" data-options="background:#fff;animation:fade;"&gt;Hello&lt;/span&gt;</code> </pre>
+   </li>
+
+   <li>
+       <span class="instruction">Similarly content of tooltip can be set in the initialization or be overwritten mannually by adding the <span class="tags">title</span> tag</span><pre class="html">
+       <code>&lt;span class="myTooltip" title="My content"&gt;Hello&lt;/span&gt;</code> </pre>
+   </li>
+</ul>
+<table>
+<thead>
+    <tr>
+        <th style="width:180px;">Option</th>
+        <th>Value</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>element</td>
+        <td>
+            Target element to add tooltip on
+            <div class="code">
+                <span class="default">Default: .drooltip</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>trigger</td>
+        <td>
+            How do you want the tooltip be shown
+            <div class="code">
+                <span>click</span>
+                <span class="default">Default: hover</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>position</td>
+        <td>
+            Position of tooltip relative to target element
+            <div class="code">
+                <span>right</span>
+                <span>bottom</span>
+                <span>left</span>
+                <span class="default">Default: top</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>background</td>
+        <td>
+            <div class="code">
+                <span class="default">Default: #2175ff</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>color</td>
+        <td>
+            <div class="code">
+                <span class="default">Default: #fff</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>animation</td>
+        <td>
+            
+            <div class="code">
+                <span title="Yay!" class="defaultTooltip" data-options="animation:fade">fade</span>
+                <span title="Yay!" class="defaultTooltip" data-options="animation:float">float</span>
+                <span title="Yay!" class="defaultTooltip" data-options="animation:material">material</span>
+                <span title="Yay!" class="default defaultTooltip" data-options="animation:bounce">Default: bounce</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>content</td>
+        <td>
+            If the content option is set, it's value will be applied to all tooltips in that instance; However, if the source element contains the title attribute, this option will be ignored for the tooltip associated with that element.
+            <div class="code">
+                <span class="default">Default: null</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>callback</td>
+        <td>
+            <div class="code">
+                <span class="default">Default: null</span>
+            </div>
+        </td>
+    </tr>
+</tbody>
+</table>
+
+  </div>
+
+  <div id = "animations" class = "sections">
+    <h2 class = 'title'>4. Animations</h2>
+    <ul class="demos animations">
+    <span>Included animations:</span>
+    <li title="I am the default" class="animation columns medium-3"><span><strong>Bounce</strong></span></li>
+    <li data-options="animation:fade" title="Cool ay" class="animation columns medium-3"><span><strong>Fade</strong></span><i class="countdown"></i></li>
+    <li title="Whoop" data-options="animation:material" class="animation columns medium-3"><span><strong>Material</strong></span></li>
+    <li title="Noice" data-options="animation:float" class="animation columns medium-3"><span><strong>Float</strong></span></li>
+</ul>
+<ul class="subsection">
+    <h4>4.1 Defining custom animations</h4>
+     <p>As I intended this to be a lightweight plugin, there isnt a gazillion choices of animations. But you can create one quite easily! <br /><small class="note">Material and the Float are actually custom animations in design, but I thought they looked pretty cool, so I included them in the plugin anyways <img src="/assets/demo/img/trollface.jpg" /></small></p>
+    <ul class="steps">
+       <li>
+           <span class="instruction">1. Specify the name of your custom animation</span><pre class="js">
+           <code>var tooltip = new Drooltip({
+   ...
+   "animation": "myCustomAnimation",
+   ...
+});</code> 
+          </pre>
+       </li>
+       <li>
+
+           <span class="instruction">
+           2. Create the relevant function; There will be 3 parameters that'll be passed to your function: 
+           <ul class="param_specification">
+                <li><span>fn</span>Str <i>"animate"</i> |  <i>"deanimate"</i></li>
+                <li><span>data</span>Object {<i class="params" title="Unique tooltip id">id</i>, <i class="params" title="Target DOM element">source</i>, <i class="params" title="Tooltip DOM element">tooltip</i>, <i class="params" title="Options associated with tooltip">options</i>}</li>
+                <li><span>callback</span></li>
+           </ul>
+           </span>
+          <pre class="js">
+          <code>function myCustomAnimation(fn, data, callback){
+    // There should be 2 paths basically
+    if ( fn === "animate" ) {
+    tooltip.hideAllTooltips();
+    setTimeout(function(){
+    data["tooltip"].classList.add("myCustomCSSAnimation")
+    ... do some other cool stuff here ...
+    if ( callback !== null || window[callback] !== undefined ) {
+        window[callback](); // call the callback function
+    }
+    }, 200)
+    } else if ( fn === "deanimate" ) {
+    ... perform the deanimation here ...
+    }
+}</code> </pre>
+       </li>
+    </ul>
+</ul>
+
+  </div>
+
+  <div id = "positioning" class = "sections">
+    <h2 class = 'title'>5. Positioning</h2>
+    <p>Drooltip is <span class="defaultTooltip underline" title="Because beta!">pretty good</span> at positioning itself accordingly to the available screen real-estate. Additionally you can specify a default position of your tooltips, but it is important to note that regardless of what position is set, it will be overruled if there is not enough space on the screen to display the tooltip to your desired position</p>
+<div class="positioning_demo">
+    <div class="screen">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <i class="positioningTip" title="Hello!">Integer</i> ac lacus elit. Maecenas aliquet augue <i class="positioningTip" title="Hi! World!">sodales</i>, vulputate odio nec, facilisis felis.Mauris vitae vestibulum urna, vitae varius mi. Cras vulputate pharetra massa vitae pulvinar. Sed quis sem sem. In accumsan vestibulum magna, ut euismod metus auctor ac. Morbi tempor lectus vel congue porta. In enim sem, consequat eget elit et, semper iaculis odio.  </p>
+    </div>
+</div>
+<p><span style="margin-top:0; background:#ccc;" class="caption_code">This is a demo illustrating how the positioning system works on screen resize</span></p>
+
+  </div>
+
+  <div id = "triggers" class = "sections">
+    <h2 class = 'title'>6. Triggers</h2>
+    <p>So as all tooltips, Drooltips comes with 2 trigger types you can use: hover and click. But what if you want to make your own ? It's pretty simple &amp; is very similar to defining custom animatons.</p>
+<ul class="steps">
+  <li>
+       <span class="instruction">1. Specify the name of your custom trigger</span><pre class="js">
+       <code>var tooltip = new Drooltip({
+       ...
+       "trigger": "myCustomTrigger",
+       ...
+  });</code> </pre>
+   </li>
+ <li>
+     <span class="instruction">
+       2. Create the relevant function; The data object will be passed to your function
+       <ul class = "param_specification">
+            <li><span>data</span>Object {<i class="params" title="Unique tooltip id">id</i>, <i class="params" title="Target DOM element">source</i>, <i class="params" title="Tooltip DOM element">tooltip</i>, <i class="params" title="Options associated with tooltip">options</i>}</li>
+       </ul>
+     </span>
+      <pre class="js">
+        <code>
+    function myCustomTrigger(data){
+      var tooltipDom = data["tooltip"]
+      var sourceDom = data["source"]
+      tooltip.hideTooltip(tooltipDom) // -> instance.hideTooltip()
+      var timeout, exit = 0
+      window.addEventListener("mouseover", function(e){   
+        if ( data["source"].contains(e.target) || data["tooltip"].contains(e.target) ){
+          clearTimeout(exit)
+        } else {
+          exit = setTimeout(function(){
+            if ( data["tooltip"].classList.contains("open") ) {
+              tooltip.deanimateTooltip(data)  // -> instance.deanimateTooltip()
+            }
+          }, 1000);
+        }
+      })
+
+      data["source"].addEventListener("mouseenter", function(e){   
+        sourceDom.querySelector(".countdown").innerHTML = "Wait for 1 second";
+        timeout = setTimeout(function(){
+          tooltip.animateTooltip(data) // -> instance.animateTooltip()
+          sourceDom.querySelector(".countdown").innerHTML = "Boom!";
+        }, 1000);
+      });
+
+      data["source"].addEventListener("mouseleave", function(e){   
+        sourceDom.querySelector(".countdown").innerHTML = "";
+        clearTimeout(timeout)
+      });
+    }
+        </code></pre><span class="caption_code">This code is used to perform the Custom Trigger demo shown</span>
+ </li>
+  </div>
+
+  <div id = "ajax/json" class = "sections">
+    <h2 class = 'title'>7. Ajax/Json</h2>
+    <p>If you wish to load content to your tooltip dynamically, you can do via AJAX or JSONp </p>
+<ul class="subsection">
+	<h4>7.1 Loading non-json dynamic content via AJAX</h4>
+	<ul class="steps">
+		<li>
+			<span class="instruction"></span>
+<pre><code class="js">var tooltip = new Drooltip({
+	...
+	"content" : {
+	"type" : "ajax",
+	"url" : "script.php",
+	},
+	...
+});</code> </pre>
+		</li>
+	</ul>
+</ul>
+<ul class="subsection">
+	<h4>7.2 Loading json data</h4>
+	<ul class="steps" style="margin-left:0">
+		<li>
+			<span class="instruction">To load json data, you can use AJAX or JSONP </span>
+<pre><code class="js">var tooltip = new Drooltip({
+	...
+	"content" : {
+	"type" : "ajax", // or "jsonp"
+	"url" : "https://mypage",
+	"json" : "myJSONVariable"
+	},
+	...
+});</code> </pre>
+		</li>
+	</ul>
+<ul class="subsection">
+	<h4>7.2.1. Using a callback function to load JSON data</h4>
+	<ul class="steps" style="margin:0;">
+		<p>Sometimes, you may want to format your JSON data before loading it to the tooltip, to do this you may want to use a callback function</p>
+		<li>
+			<span class="instruction">1. Just add "()" at the end of your value in the <span class="tag">json</span> parameter to use a function</span>
+<pre><code class="js">var tooltip = new Drooltip({
+	...
+	"content" : {
+	"type" : "jsonp", // or ajax
+	"url" : "link.com/JSON",
+	"json" : "myJSONFunction()" // just add "()" for function
+	},
+	...
+});
+</code>
+</pre>
+		</li>
+		<li>
+			<span class="instruction">2. Then define the respective function which accepts the <span class="tag">data</span> object</span>
+			<ul class="param_specification">
+			<li><span>data</span>Object {<i class="params" title="The keys in your JSON result">...</i>}</li>
+			</ul>
+<pre><code class="js">function myJSONFunction(data) {
+	return data["myJSONVariable"];
+}
+</code> </pre>
+		</li>
+	</ul>
+</ul>
+                
+            
+</ul>
+
+  </div>
+
+  <div id = "useful functions" class = "sections">
+    <h2 class = 'title'>8. Useful functions</h2>
+    <p>The following are some functions you may find useful especially when creating custom animations/triggers</p>
+
+<table>
+<thead>
+    <tr>
+        <th style="width:300px;">Function</th>
+        <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>animateAllTooltips()</td>
+        <td>
+            Animate all tooltips associated in the instance
+        </td>
+    </tr>
+    <tr>
+        <td>deanimateAllTooltips()</td>
+        <td>
+           Deanimate all tooltips associated in the instance
+        </td>
+    </tr>
+    <tr>
+        <td>animateTooltip(<span class="fnParams" title="The data object that was passed to your function">data</span>)</td>
+        <td>
+            Animate an individual tooltip
+        </td>
+    </tr>
+    <tr>
+        <td>deanimateTooltip(<span class="fnParams" title="The data object that was passed to your function">data</span>)</td>
+        <td>
+            Deanimate an individual tooltip
+        </td>
+    </tr>
+    <tr>
+        <td>showAllTooltips()</td>
+        <td>
+           Show all tooltips of that instance (no animation)
+        </td>
+    </tr>
+    <tr>
+        <td>hideAllTooltips()</td>
+        <td>
+           Hide all tooltips of that instance (no animation)
+        </td>
+    </tr>
+
+    <tr>
+        <td>showTooltip(<span class="fnParams" title="Tooltip DOM, data[&quot;tooltip&quot;]">tooltip</span>)</td>
+        <td>
+           Show a specific tooltip
+        </td>
+    </tr>
+    <tr>
+        <td>hideTooltip(<span class="fnParams" title="Tooltip DOM, data[&quot;tooltip&quot;]">tooltip</span>)</td>
+        <td>
+           Hide a specific tooltip
+        </td>
+    </tr>
+    <tr>
+        <td>addStandardEffect(<span class="fnParams" title="Tooltip DOM, data[&quot;tooltip&quot;]">tooltip</span>, <span class="fnParams" title="The included effect that you want to add">effect</span>)</td>
+        <td>
+          	Animate the tooltip with an <span class="underline defaultTooltip" title="Bounce, Fade, Material, Floating">included effect</span>
+        </td>
+    </tr>
+    <tr>
+        <td>removeStandardEffect(<span class="fnParams" title="Tooltip DOM, data[&quot;tooltip&quot;]">tooltip</span>, <span class="fnParams" title="The included effect that you want to remove">effect</span>)</td>
+        <td>
+          	Denimate the tooltip with an <span class="underline defaultTooltip" title="Bounce, Fade, Material, Floating">included effect</span>
+        </td>
+    </tr>
+    <tr>
+        <td>showArrow(<span class="fnParams" title="Tooltip DOM, data[&quot;tooltip&quot;]">tooltip</span>)</td>
+        <td>
+          	Show the tip arrow of a tooltip
+        </td>
+    </tr>
+    <tr>
+        <td>hideArrow(<span class="fnParams" title="Tooltip DOM, data[&quot;tooltip&quot;]">tooltip</span>)</td>
+        <td>
+          	Hide the tip arrow of a tooltip
+        </td>
+    </tr>
+    <tr>
+        <td>updatePosition(<span class="fnParams" title="The data object passed to your function">data</span>)</td>
+        <td>
+          	Intelligently update the position of a tooltip relative to its target element
+        </td>
+    </tr>
+</tbody>
+</table>
+
+<ul style="margin-top:30px" class="steps">
+    	<li>
+    		<span class="instruction">An example on how to use the function</span>
+    		<pre class="js"><code>var tooltip = new Drooltip({ ... })
+tooltip.animateAllTooltips();
+</code></pre>    
+		</li>
+	</ul>
+
+  </div>
+
+
+        <footer class = "main_footer">
+          <h4>
+            Made with <i class="fa fa-heart"></i> in Kuala Lumpur, Malaysia <br />
+            Designed &amp; Developed by <a href="https://imprev.co" target="_blank">Prev Wong</a> <br />
+            Drooltip.js is licensed under MIT
+          </h4>
+          <ul class = "social">
+            <li><a href="https://imprev.co" class="portfolio" target="_blank"><i class = "fa fa-user-circle-o"></i></a></li>
+             <li><a href="https://twitter.com/prevwong" class="twitter" target="_blank"><i class = "fa fa-twitter"></i></a></li>
+              <li><a href="https://github.com" class="github" target="_blank"><i class = "fa fa-github"></i></a></li>
+          </ul>
+        </footer>
+      </div>
+    </main>
+
+    
+    </div>
+    </div>
+    <form style="display:none" id="paypal_donate" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="hosted_button_id" value="T3M9D29DRF9Y6">
+    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<script type="text/javascript" src="/assets/drooltip/js/drooltip.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+
+document.getElementById("donate").addEventListener("click", function(){
+  document.getElementById('paypal_donate').submit();
+})
+
+var navigationalLinks = document.querySelectorAll('.navigationalLinks')
+
+function clickFn(){
+	[].map.call(navigationalLinks, function(navigationalLink) { navigationalLink.classList.remove("active") });
+    this.classList.add("active");
+}
+
+
+[].map.call(navigationalLinks, function(navigationalLink) {
+    navigationalLink.addEventListener("click", clickFn, false);
+});
+var defaultDrool = new Drooltip({
+  "element" : ".defaultTooltip",
+})
+var animation = new Drooltip({
+  "element" : ".animation",
+})
+var params = new Drooltip({
+    "element" : ".params, .fnParams",
+    "background" : "#fff",
+    "color" : "#2175ff",
+    "animation" : "fade",
+    "trigger" : "hover"
+});
+
+var positioningTooltips = new Drooltip({
+	"element" : ".positioningTip",
+	"background" : "#222",
+	"color" : "#fff",
+	"animation" : "fade",
+	"trigger" : "none",
+});
+
+
+
+function overviewCustom(data){
+var tooltipDom = data["tooltip"]
+var sourceDom = data["source"]
+defaultDrool.hideTooltip(tooltipDom)
+
+
+
+var timeout, exit = 0
+window.addEventListener("mouseover", function(e){   
+    if ( data["source"].contains(e.target) || data["tooltip"].contains(e.target) ){
+        clearTimeout(exit)
+    } else {
+        exit = setTimeout(function(){
+
+            if ( data["tooltip"].classList.contains("open") ) {
+                
+                defaultDrool.deanimateTooltip(data)
+            }
+        }, 200);
+    }
+})
+
+data["source"].addEventListener("mouseenter", function(e){   
+      sourceDom.querySelector(".countdown").innerHTML = "Wait for 1 second";
+      timeout = setTimeout(function(){
+        defaultDrool.animateTooltip(data)
+        sourceDom.querySelector(".countdown").innerHTML = "Boom!";
+      }, 1000);
+});
+
+data["source"].addEventListener("mouseleave", function(e){   
+    sourceDom.querySelector(".countdown").innerHTML = "";
+      clearTimeout(timeout)
+});
+}
+
+
+var positionScreenTips = function(){
+	setTimeout(function(){
+	for ( var i in positioningTooltips["tooltips"] ) {
+	positioningTooltips.updatePosition(positioningTooltips["tooltips"][i])
+	}
+	positionScreenTips()
+	}, 10)
+}
+
+var screenResize = function(){
+	setTimeout(function(){
+	 document.querySelector('.screen').classList.add("animate")
+	 setTimeout(function(){
+	     document.querySelector('.screen').classList.add("animate2")
+	     setTimeout(function(){
+	         document.querySelector('.screen').classList.remove("animate", "animate2")
+	         screenResize()
+	     }, 2000)
+	 }, 2000)
+	}, 1000)
+}
+positionScreenTips();
+screenResize();
+
+function isScrolledIntoView(el) {
+    var elemTop = el.getBoundingClientRect().top;
+    var elemBottom = el.getBoundingClientRect().bottom;
+
+    var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
+    return isVisible;
+}
+
+var current_scroll = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+
+if ( current_scroll === 0 ){
+	document.querySelector('.navigationalLinks[href="#overview"]').classList.add("active")
+}
+
+window.addEventListener("scroll", function(){
+
+	var current_scroll = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    var sidebar = document.getElementById("navigation")
+    var sidebarTop = sidebar.getBoundingClientRect().top
+
+   if ( window.innerHeight > sidebar.clientHeight && window.innerWidth > 1050 ) { 
+	   	sidebar.style.transform = "translateY("+ current_scroll +"px)"
+   } else {
+   		sidebar.style.transform = "translateY(0px)"
+   }
+
+   addLinkActive();
+})
+
+
+var visibleY = function(el){
+	  var rect = el.getBoundingClientRect(), top = rect.top, height = rect.height, 
+	    el = el.parentNode;
+	  do {
+	    rect = el.getBoundingClientRect();
+	    if (top <= rect.bottom === false) return false;
+	    // Check if the element is out of view due to a container scrolling
+	    if ((top + height) <= rect.top) return false
+	    el = el.parentNode;
+	  } while (el != document.body);
+	  // Check its within the document viewport
+	  return top <= document.documentElement.clientHeight - 300;
+	};
+
+function addLinkActive() {
+   var sections = document.querySelectorAll(".sections")
+   for ( var i=0; i < sections.length; i ++) {
+   		if ( visibleY(sections[i]) === true ) {
+   			[].map.call(navigationalLinks, function(navigationalLink) { navigationalLink.classList.remove("active") });
+   			document.querySelector('.navigationalLinks[href="#'+ sections[i].getAttribute("id")+'"]').classList.add("active")
+   		}
+   }
+}
+window.addEventListener("resize", function(){
+	 var sidebar = document.getElementById("navigation")
+	 if (  window.innerWidth < 1050 ) { 
+	 	sidebar.style.transform = "translateY(0px)"
+	 }
+})
+
+var select = document.getElementById("mobile_fallback")
+select.addEventListener("change", function(){
+    window.location.hash = this.getElementsByTagName('option')[this.selectedIndex].value;
+});
+
+</script>
+   
+  </body>
+
+</html>
