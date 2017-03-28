@@ -436,7 +436,7 @@ Github: https://github.com/prevwong/drooltip.js/
 
 	function listenerAdd(data, trigger) {
 		var standardTriggers = ["hover", "click", "none"];
-		var tooltips = Object.assign({}, publicTooltips);
+		//var tooltips = Object.assign({}, publicTooltips);
 		if ( standardTriggers.indexOf(trigger) === -1 ) { 
 		    window[trigger](data);
 		    return false;
@@ -577,7 +577,10 @@ Github: https://github.com/prevwong/drooltip.js/
 	          var tooltip = createTooltip((id + "_" + i), elems[i], options);
 	          tooltips[id][i] =  { "id": id + "_" + i, "source" :  elems[i], tooltip, options };
 	          this.tooltips[i] = { "id": id + "_" + i, "source" :  elems[i], tooltip, options };
-	        }	        
+	        }	
+
+	        attachTriggerEvents(this.tooltips[i], options["trigger"])
+	        getPosition(tooltip, elems[i], options["position"]);        
 	    }
   	}; 
 
@@ -663,6 +666,7 @@ Github: https://github.com/prevwong/drooltip.js/
 	}
 
 	/** Sets trigger events to each tooltip **/
+	/**
 	Drooltip.prototype.attachTriggerEvents = function() {
 		var standardTriggers = ["hover", "click"];
 		for ( var i in tooltips ) {
@@ -681,11 +685,24 @@ Github: https://github.com/prevwong/drooltip.js/
 		  
 		}
 	};
+	**/
+
+	function attachTriggerEvents() {
+		var standardTriggers = ["hover", "click"];
+		console.log("here")
+		var source = data["source"],
+		    tooltip = data["tooltip"],
+		    options = data["options"],
+		    trigger = options["trigger"];
+
+		tooltip.classList.add( "loaded");
+		listenerAdd(data, trigger);
+	}
 })();
 
 window.onload = function() {
 
-	Drooltip.prototype.attachTriggerEvents();
+	//Drooltip.prototype.attachTriggerEvents();
 
 	Drooltip.prototype.setTooltipsPos();	
 
