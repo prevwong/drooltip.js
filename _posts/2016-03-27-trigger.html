@@ -17,15 +17,17 @@ index: 6
      <span class="instruction">
        2. Create the relevant function; The data object will be passed to your function
        <ul class = "param_specification">
+            <li><span>this</span>Object <i class="params" title="The object created from the initialisation; This gives you access to its public function">instance</i>
             <li><span>data</span>Object {<i class="params" title="Unique tooltip id">id</i>, <i class="params" title="Target DOM element">source</i>, <i class="params" title="Tooltip DOM element">tooltip</i>, <i class="params" title="Options associated with tooltip">options</i>}</li>
        </ul>
      </span>
       <pre class="js">
         <code>
     function myCustomTrigger(data){
+      var obj = this;
       var tooltipDom = data["tooltip"]
       var sourceDom = data["source"]
-      tooltip.hideTooltip(tooltipDom) // -> instance.hideTooltip()
+      obj.hideTooltip(tooltipDom) // -> instance.hideTooltip()
       var timeout, exit = 0
       window.addEventListener("mouseover", function(e){   
         if ( data["source"].contains(e.target) || data["tooltip"].contains(e.target) ){
@@ -33,7 +35,7 @@ index: 6
         } else {
           exit = setTimeout(function(){
             if ( data["tooltip"].classList.contains("open") ) {
-              tooltip.deanimateTooltip(data)  // -> instance.deanimateTooltip()
+              obj.deanimateTooltip(data)  // -> instance.deanimateTooltip()
             }
           }, 1000);
         }
@@ -42,7 +44,7 @@ index: 6
       data["source"].addEventListener("mouseenter", function(e){   
         sourceDom.querySelector(".countdown").innerHTML = "Wait for 1 second";
         timeout = setTimeout(function(){
-          tooltip.animateTooltip(data) // -> instance.animateTooltip()
+          obj.animateTooltip(data) // -> instance.animateTooltip()
           sourceDom.querySelector(".countdown").innerHTML = "Boom!";
         }, 1000);
       });
