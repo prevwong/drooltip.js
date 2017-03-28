@@ -50,48 +50,49 @@ var positioningTooltips = new Drooltip({
 
 
 function overviewCustom(data){
-var tooltipDom = data["tooltip"]
-var sourceDom = data["source"]
-defaultDrool.hideTooltip(tooltipDom)
+  var _ = this;
+  var tooltipDom = data["tooltip"]
+  var sourceDom = data["source"]
+  _.hideTooltip(tooltipDom)
 
 
 
-var timeout, exit = 0
-window.addEventListener("mouseover", function(e){   
-    if ( data["source"].contains(e.target) || data["tooltip"].contains(e.target) ){
-        clearTimeout(exit)
-    } else {
-        exit = setTimeout(function(){
+  var timeout, exit = 0
+  window.addEventListener("mouseover", function(e){   
+      if ( data["source"].contains(e.target) || data["tooltip"].contains(e.target) ){
+          clearTimeout(exit)
+      } else {
+          exit = setTimeout(function(){
 
-            if ( data["tooltip"].classList.contains("open") ) {
-                
-                defaultDrool.deanimateTooltip(data)
-            }
-        }, 200);
-    }
-})
+              if ( data["tooltip"].classList.contains("open") ) {
+                  
+                  _.deanimateTooltip(data)
+              }
+          }, 200);
+      }
+  })
 
-data["source"].addEventListener("mouseenter", function(e){   
-      sourceDom.querySelector(".countdown").innerHTML = "Wait for 1 second";
-      timeout = setTimeout(function(){
-        defaultDrool.animateTooltip(data)
-        sourceDom.querySelector(".countdown").innerHTML = "Boom!";
-      }, 1000);
-});
+  data["source"].addEventListener("mouseenter", function(e){   
+        sourceDom.querySelector(".countdown").innerHTML = "Wait for 1 second";
+        timeout = setTimeout(function(){
+          _.animateTooltip(data)
+          sourceDom.querySelector(".countdown").innerHTML = "Boom!";
+        }, 1000);
+  });
 
-data["source"].addEventListener("mouseleave", function(e){   
-    sourceDom.querySelector(".countdown").innerHTML = "";
-      clearTimeout(timeout)
-});
+  data["source"].addEventListener("mouseleave", function(e){   
+      sourceDom.querySelector(".countdown").innerHTML = "";
+        clearTimeout(timeout)
+  });
 }
 
 
 var positionScreenTips = function(){
 	setTimeout(function(){
-	for ( var i in positioningTooltips["tooltips"] ) {
-	positioningTooltips.updatePosition(positioningTooltips["tooltips"][i])
-	}
-	positionScreenTips()
+  	for ( var i in positioningTooltips["tooltips"] ) {
+  	   positioningTooltips.updatePosition(positioningTooltips["tooltips"][i])
+  	}
+  	positionScreenTips()
 	}, 10)
 }
 

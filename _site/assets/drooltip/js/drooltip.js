@@ -436,9 +436,9 @@ Github: https://github.com/prevwong/drooltip.js/
 
 	function listenerAdd(data, trigger) {
 		var standardTriggers = ["hover", "click", "none"];
-		var tooltips = Object.assign({}, publicTooltips);
+		//var tooltips = Object.assign({}, publicTooltips);
 		if ( standardTriggers.indexOf(trigger) === -1 ) { 
-		    window[trigger](data);
+		    window[trigger].call(this, data);
 		    return false;
 		} else {
 			data["tooltip"].classList.add("hideTooltip");
@@ -550,6 +550,7 @@ Github: https://github.com/prevwong/drooltip.js/
 	    var elems = document.querySelectorAll(this.options["element"]),
 	        id = this.options["element"];
 
+	    var _ = this
 	    tooltips[id] = {};
 	    this.tooltips = {};
 	    for (i = 0; i < elems.length; ++i) {
@@ -577,7 +578,9 @@ Github: https://github.com/prevwong/drooltip.js/
 	          var tooltip = createTooltip((id + "_" + i), elems[i], options);
 	          tooltips[id][i] =  { "id": id + "_" + i, "source" :  elems[i], tooltip, options };
 	          this.tooltips[i] = { "id": id + "_" + i, "source" :  elems[i], tooltip, options };
-	        }	        
+	        }	   
+
+	        attachTriggerEvent.call(_, this.tooltips[i])     
 	    }
   	}; 
 
@@ -662,30 +665,20 @@ Github: https://github.com/prevwong/drooltip.js/
 		getPosition(data["tooltip"], data["source"], data["options"]["position"]);
 	}
 
-	/** Sets trigger events to each tooltip **/
-	Drooltip.prototype.attachTriggerEvents = function() {
-		var standardTriggers = ["hover", "click"];
-		for ( var i in tooltips ) {
-		  publicTooltips = {};      
-		  for ( var j in tooltips[i] ) {
-		    var source = tooltips[i][j]["source"],
-		        tooltip = tooltips[i][j]["tooltip"],
-		        options = tooltips[i][j]["options"],
-		        trigger = options["trigger"];
+	function attachTriggerEvent(data) {
+		console.log(this)
+		var source  = data["source"],
+			tooltip = data["tooltip"],
+			options =  data["options"],
+			trigger = options["trigger"];
 
-		    tooltip.classList.add( "loaded");
-		    publicTooltips[j] = { "options" : { "animation" : options["animation"], "callback" : options["callback"], "content" : options["content"] }, source, tooltip };
-		    listenerAdd(tooltips[i][j], trigger);
-
-		  }
-		  
-		}
-	};
+	    tooltip.classList.add( "loaded");
+	    //publicTooltips[j] = { "options" : { "animation" : options["animation"], "callback" : options["callback"], "content" : options["content"] }, source, tooltip };
+	    listenerAdd.call(this, data, trigger);
+	}
 })();
 
 window.onload = function() {
-
-	Drooltip.prototype.attachTriggerEvents();
 
 	Drooltip.prototype.setTooltipsPos();	
 

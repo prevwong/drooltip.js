@@ -13,15 +13,15 @@
   <link rel="canonical" href="http://localhost:4000/">
   <link rel="alternate" type="application/rss+xml" title="Drooltip.js" href="/feed.xml">
 
-  <link rel="stylesheet" href="/assets/drooltip/css/drooltip.css"/>
-  <link rel="stylesheet" href="/assets/demo/css/foundation.css"/>
-  <link rel="stylesheet" href="/assets/demo/css/demo.css"/>
-  <link rel="stylesheet" href="/assets/demo/css/font-awesome.min.css"/>
-  <link rel="stylesheet" href="/assets/demo/css/solarized-dark.css"/>
+  <link rel="stylesheet" href="assets/drooltip/css/drooltip.css"/>
+  <link rel="stylesheet" href="assets/demo/css/foundation.css"/>
+  <link rel="stylesheet" href="assets/demo/css/demo.css"/>
+  <link rel="stylesheet" href="assets/demo/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="assets/demo/css/solarized-dark.css"/>
   <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600" rel="stylesheet">
 
-  <script type="text/javascript" src="/assets/demo/js/highlight.pack.js"></script>
+  <script type="text/javascript" src="assets/demo/js/highlight.pack.js"></script>
   
   
   <script>
@@ -624,7 +624,7 @@ tooltip.animateAllTooltips();
     <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 </form>
 
-<script type="text/javascript" src="/assets/drooltip/js/drooltip.js"></script>
+<script type="text/javascript" src="assets/drooltip/js/drooltip.js"></script>
 
 <script>hljs.initHighlightingOnLoad();</script>
 <script type="text/javascript">
@@ -669,9 +669,10 @@ var positioningTooltips = new Drooltip({
 
 
 function overviewCustom(data){
+  var  _ = this;
 var tooltipDom = data["tooltip"]
 var sourceDom = data["source"]
-defaultDrool.hideTooltip(tooltipDom)
+_.hideTooltip(tooltipDom)
 
 
 
@@ -684,7 +685,7 @@ window.addEventListener("mouseover", function(e){
 
             if ( data["tooltip"].classList.contains("open") ) {
                 
-                defaultDrool.deanimateTooltip(data)
+                _.deanimateTooltip(data)
             }
         }, 200);
     }
@@ -693,7 +694,7 @@ window.addEventListener("mouseover", function(e){
 data["source"].addEventListener("mouseenter", function(e){   
       sourceDom.querySelector(".countdown").innerHTML = "Wait for 1 second";
       timeout = setTimeout(function(){
-        defaultDrool.animateTooltip(data)
+        _.animateTooltip(data)
         sourceDom.querySelector(".countdown").innerHTML = "Boom!";
       }, 1000);
 });
@@ -708,7 +709,7 @@ data["source"].addEventListener("mouseleave", function(e){
 var positionScreenTips = function(){
 	setTimeout(function(){
 	for ( var i in positioningTooltips["tooltips"] ) {
-	positioningTooltips.updatePosition(positioningTooltips["tooltips"][i])
+  positioningTooltips.updatePosition(positioningTooltips["tooltips"][i])
 	}
 	positionScreenTips()
 	}, 10)
