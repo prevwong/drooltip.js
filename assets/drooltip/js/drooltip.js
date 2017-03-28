@@ -538,6 +538,18 @@ Github: https://github.com/prevwong/drooltip.js/
 		}
 	}
 
+	function attachTriggerEvents(data) {
+		var standardTriggers = ["hover", "click"];
+		console.log("here")
+		var source = data["source"],
+		    tooltip = data["tooltip"],
+		    options = data["options"],
+		    trigger = options["trigger"];
+
+		tooltip.classList.add( "loaded");
+		listenerAdd(data, trigger);
+	}
+
 
 	/** Global Objects, contains tooltips across all instances in a page; 
 	required for setting positions and processing ajax/jsonp requests **/
@@ -687,17 +699,7 @@ Github: https://github.com/prevwong/drooltip.js/
 	};
 	**/
 
-	function attachTriggerEvents(data) {
-		var standardTriggers = ["hover", "click"];
-		console.log("here")
-		var source = data["source"],
-		    tooltip = data["tooltip"],
-		    options = data["options"],
-		    trigger = options["trigger"];
-
-		tooltip.classList.add( "loaded");
-		listenerAdd(data, trigger);
-	}
+	
 })();
 
 window.onload = function() {
