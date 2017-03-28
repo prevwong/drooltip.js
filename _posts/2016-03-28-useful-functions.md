@@ -103,6 +103,12 @@ The following are some functions you may find useful especially when creating cu
     		<span class = "instruction">An example on how to use the function</span>
     		<pre class = "js"><code>var tooltip = new Drooltip({ ... })
 tooltip.animateAllTooltips();
+
+// or when using in custom triggers/animations
+function customAnimation(data){
+    var obj = this;
+    obj.animateAllTooltips();
+}
 </code></pre>    
 		</li>
 	</ul>
