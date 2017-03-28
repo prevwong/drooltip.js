@@ -687,7 +687,7 @@ Github: https://github.com/prevwong/drooltip.js/
 	};
 	**/
 
-	function attachTriggerEvents() {
+	function attachTriggerEvents(data) {
 		var standardTriggers = ["hover", "click"];
 		console.log("here")
 		var source = data["source"],
