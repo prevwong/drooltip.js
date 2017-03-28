@@ -227,7 +227,6 @@ Github: https://github.com/prevwong/drooltip.js/
 		    tooltipDimensions = getElemDimensions(tooltip),
 		    arrowSize = 6;
 
-		 console.log(required)
 		  //  console.log("top", sourceDimensions["top"])
 		//console.log("height", sourceDimensions["height"])
 		var imaginaryPositions = {
@@ -256,7 +255,6 @@ Github: https://github.com/prevwong/drooltip.js/
 		    screenHeight = window.innerHeight,
 		    selector = [0,0,0,0];
 
-		 console.log(required)
 		if ( screenTop < imaginaryPositions["if_top_y"] ) {
 		  selector[0] +=1;
 		  if ( required === "top" ) { selector[0] +=2; }
@@ -283,7 +281,7 @@ Github: https://github.com/prevwong/drooltip.js/
 		  selector[3] += 1;
 		  if ( required === "left" ) { selector[3] +=2; }
 		}
-		console.log(selector)
+		//console.log(selector)
 		return selector.indexOf(Math.max.apply(Math, selector));
 	}
 
@@ -438,9 +436,9 @@ Github: https://github.com/prevwong/drooltip.js/
 
 	function listenerAdd(data, trigger) {
 		var standardTriggers = ["hover", "click", "none"];
-		console.log("listener")
+		//var tooltips = Object.assign({}, publicTooltips);
 		if ( standardTriggers.indexOf(trigger) === -1 ) { 
-		    window[trigger](data);
+		    window[trigger].call(this, data);
 		    return false;
 		} else {
 			data["tooltip"].classList.add("hideTooltip");
@@ -551,6 +549,8 @@ Github: https://github.com/prevwong/drooltip.js/
 	Drooltip.prototype.build = function(){
 	    var elems = document.querySelectorAll(this.options["element"]),
 	        id = this.options["element"];
+
+	    var _ = this
 	    tooltips[id] = {};
 	    this.tooltips = {};
 	    for (i = 0; i < elems.length; ++i) {
@@ -569,7 +569,6 @@ Github: https://github.com/prevwong/drooltip.js/
 	          }
 	        }
 
-
 	        if ( privateContent !== null && privateContent !== "" ) {
 	        	options["content"] = formatPrivateContent(privateContent);
 	        	elems[i].removeAttribute("title")
@@ -579,11 +578,9 @@ Github: https://github.com/prevwong/drooltip.js/
 	          var tooltip = createTooltip((id + "_" + i), elems[i], options);
 	          tooltips[id][i] =  { "id": id + "_" + i, "source" :  elems[i], tooltip, options };
 	          this.tooltips[i] = { "id": id + "_" + i, "source" :  elems[i], tooltip, options };
-	        }	        
+	        }	   
 
-	        console.log(options["position"])
-	        attachTriggerEvents(this.tooltips[i], options["trigger"])
-	        getPosition(tooltip, elems[i], options["position"]);
+	        attachTriggerEvent.call(_, this.tooltips[i])     
 	    }
   	}; 
 
@@ -651,6 +648,7 @@ Github: https://github.com/prevwong/drooltip.js/
     Drooltip.prototype.setTooltipsPos = function(){
 		var _ = this;
 		for ( var i in tooltips ) {
+		  
 		  for ( var j in tooltips[i] ) {
 		    var current = tooltips[i][j];
 		    var position = current["options"]["position"];
@@ -667,26 +665,26 @@ Github: https://github.com/prevwong/drooltip.js/
 		getPosition(data["tooltip"], data["source"], data["options"]["position"]);
 	}
 
-	function attachTriggerEvents(data) {
-		var standardTriggers = ["hover", "click"];
-		console.log("here")
-		var source = data["source"],
-		    tooltip = data["tooltip"],
-		    options = data["options"],
-		    trigger = options["trigger"];
+	function attachTriggerEvent(data) {
+		console.log(this)
+		var source  = data["source"],
+			tooltip = data["tooltip"],
+			options =  data["options"],
+			trigger = options["trigger"];
 
-		tooltip.classList.add( "loaded");
-		listenerAdd(data, trigger);
+	    tooltip.classList.add( "loaded");
+	    //publicTooltips[j] = { "options" : { "animation" : options["animation"], "callback" : options["callback"], "content" : options["content"] }, source, tooltip };
+	    listenerAdd.call(this, data, trigger);
 	}
 })();
 
-window.onready = function() {
-	//Drooltip.prototype.attachTriggerEvents();
+window.onload = function() {
+
 	Drooltip.prototype.setTooltipsPos();	
 
 	window.addEventListener('scroll', function(){ 
 		Drooltip.prototype.setTooltipsPos();	
 	}, true)
-};
 
-window.onresize = function(){ Drooltip.prototype.setTooltipsPos(); }
+	window.onresize = function(){ Drooltip.prototype.setTooltipsPos(); }
+};
