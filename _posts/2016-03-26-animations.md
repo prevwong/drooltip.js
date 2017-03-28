@@ -28,7 +28,7 @@ index: 4
            <span class="instruction">
            2. Create the relevant function; There will be 3 parameters that'll be passed to your function: 
            <ul class = "param_specification">
-                <li><span>this</span>Object <i class="params" title="The object created from the initialisation">instance</i>
+                <li><span>this</span>Object <i class="params" title="The object created from the initialisation; This gives you access to its public function">instance</i></li>
                 <li><span>fn</span>Str <i>"animate"</i> |  <i>"deanimate"</i></li>
                 <li><span>data</span>Object {<i class="params" title="Unique tooltip id">id</i>, <i class="params" title="Target DOM element">source</i>, <i class="params" title="Tooltip DOM element">tooltip</i>, <i class="params" title="Options associated with tooltip">options</i>}</li>
                 <li><span>callback</span></li>
