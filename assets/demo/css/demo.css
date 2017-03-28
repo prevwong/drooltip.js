@@ -441,4 +441,11 @@ small.note {
         .main_footer .social li a.github:hover {
           color: #222; }
 
+.context {
+  float: left;
+  width: 100%;
+  background: #f5f5f5;
+  padding: 15px 20px;
+  margin-top: 20px; }
+
 /*# sourceMappingURL=demo.css.map */
