@@ -182,7 +182,7 @@ Github: https://github.com/prevwong/drooltip.js/
 
 	/** Replicating jQuery Offset Method @thanks ubugnu **/
 	function isWindow( obj ) {
-	    return obj != null && obj === obj.window;
+	    return obj !== null && obj === obj.window;
 	}
 	function getWindow( elem ) {
 	    return isWindow( elem ) ? elem : elem.nodeType === 9 && elem.defaultView;
@@ -202,7 +202,7 @@ Github: https://github.com/prevwong/drooltip.js/
 	        top: box.top + win.pageYOffset - docElem.clientTop,
 	        left: box.left + win.pageXOffset - docElem.clientLeft
 	    };
-	};
+	}
 
 	function getElemDimensions(element) {
 		var top  =  window.pageYOffset;
