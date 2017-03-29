@@ -327,6 +327,11 @@ ul.steps {
 		float:left;
 		width:100%;
 		margin-bottom:20px;
+		&.second_method {
+			padding-left:20px;
+			border-left:10px solid #e0e0e0;
+			margin-bottom:50px;
+		}
 	}
 	.instruction {
 		color: #5d6869;
@@ -558,7 +563,3 @@ small.note {
     margin-top: 20px;
 }
 
-.second_method {
-	padding-left:20px;
-	border-left:3px solid #2f2f2f;
-}
