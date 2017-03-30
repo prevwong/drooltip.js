@@ -16,7 +16,7 @@ Prev Wong	@prevwong 	imprev.co
 [![Code Climate](https://codeclimate.com/github/prevwong/drooltip.js/badges/gpa.svg)](https://codeclimate.com/github/prevwong/drooltip.js)
 [![codebeat badge](https://codebeat.co/badges/feba30b2-1759-4472-b6af-997c9c46f952)](https://codebeat.co/a/prevwong/projects/github-com-prevwong-drooltip-js-master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/db9b8d8043c84f1ca7cd9686daae5717)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=prevwong/drooltip.js&amp;utm_campaign=Badge_Grade)
-[![Support](https://supporterhq.com/api/b/9okwcyts1gevgy53glt8ffpyc)](https://suporterhq.com/give/9okwcyts1gevgy53glt8ffpyc)
+[![Support](https://supporterhq.com/api/b/9okwcyts1gevgy53glt8ffpyc)](https://supporterhq.com/give/9okwcyts1gevgy53glt8ffpyc)
 ## Overview
 
 Drooltip.js is a lightweight native-js plugin/extension that allows you to create beautiful, customizable and intelligent tooltips, capable of showing anything from simple text, loading dynamic content and loading entire HTML elements!
