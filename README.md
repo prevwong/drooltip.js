@@ -8,7 +8,7 @@
   \::/  /  |:\/__/  \::/  /  \::/  /  \:\__\\/__/    \:\__\     \/__/  \/__/    \::/  / 
    \/__/    \|__|    \/__/    \/__/    \/__/          \/__/                      \/__/  
 
-Drooltip.js 	v1.00&beta;
+Drooltip.js
 github.com/prevwong/drooltip.js
 Prev Wong	@prevwong 	imprev.co
 </code>
@@ -25,23 +25,6 @@ Drooltip.js is a lightweight native-js plugin/extension that allows you to creat
 
 Documentation and Demos are [here](https://prevwong.github.io/drooltip.js/)
 
-## Q&A
-
-* Q: Why did you make this ?
-  A: Twas a boring day.
-
-* Q: There're already many tooltips plugins out there, what is this for ?
-  A: I just wanted to share my version of tooltips as a contribution to the open-source community
-
-
-* Q: Is this plugin perfect/flawless
-  A: Of course not. As it is still in beta, it is clear that there may most definitely be some bugs
-
-
-## History
-
-Release | Description
------------- | -------------
-v1.0.0&beta; | Initial beta release
-
-Feel free to fork it, and contribute to make Drooltip.js even better!
+## Source
+You're currently viewing the gh-pages branch which contains the demo used for Drooltip.js;
+To get the source and version history, go [here](https://github.com/prevwong/drooltip.js/)
