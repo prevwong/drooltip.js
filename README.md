@@ -13,6 +13,7 @@ github.com/prevwong/drooltip.js
 Prev Wong	@prevwong 	imprev.co
 </code>
 </pre>
+[![npm version](https://badge.fury.io/js/drooltip.js.svg)](https://badge.fury.io/js/drooltip.js)
 [![Code Climate](https://codeclimate.com/github/prevwong/drooltip.js/badges/gpa.svg)](https://codeclimate.com/github/prevwong/drooltip.js)
 [![codebeat badge](https://codebeat.co/badges/feba30b2-1759-4472-b6af-997c9c46f952)](https://codebeat.co/a/prevwong/projects/github-com-prevwong-drooltip-js-master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/db9b8d8043c84f1ca7cd9686daae5717)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=prevwong/drooltip.js&amp;utm_campaign=Badge_Grade)
@@ -35,13 +36,13 @@ Documentation and Demos are [here](https://prevwong.github.io/drooltip.js/)
 
 
 * Q: Is this plugin perfect/flawless
-  A: Of course not. As it is still in beta, it is clear that there may most definitely be some bugs.
-
+  A: Probably not.
 
 ## History
 
 Release | Description
 ------------ | -------------
+v1.0.1 | Fixed bugs and issues; Stable Release basically
 v1.0.0&beta; | Initial beta release
 
 Feel free to fork it, and contribute to make Drooltip.js even better!

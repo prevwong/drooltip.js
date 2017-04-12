@@ -1,0 +1,32 @@
+{
+  "name": "drooltip.js",
+  "version": "1.0.1",
+  "description": "Minimalistic, powerful and extensible Vanilla JS tooltip plugin",
+  "main": "package/js/drooltip.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prevwong/drooltip.js.git"
+  },
+  "keywords": [
+    "minimalistic",
+    "powerful",
+    "beautiful",
+    "extensible",
+    "hackable",
+    "tooltips",
+    "modern",
+    "json",
+    "ajax",
+    "css3",
+    "animations"
+  ],
+  "author": "Prev Wong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prevwong/drooltip.js/issues"
+  },
+  "homepage": "https://github.com/prevwong/drooltip.js#readme"
+}
