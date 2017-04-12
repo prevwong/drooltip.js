@@ -8,7 +8,7 @@
   \::/  /  |:\/__/  \::/  /  \::/  /  \:\__\\/__/    \:\__\     \/__/  \/__/    \::/  / 
    \/__/    \|__|    \/__/    \/__/    \/__/          \/__/                      \/__/  
 
-Drooltip.js 	v1.00&beta;
+Drooltip.js 	v1.00
 github.com/prevwong/drooltip.js
 Prev Wong	@prevwong 	imprev.co
 </code>
