@@ -423,6 +423,11 @@ ul.param_specification {
 			    border-bottom: 1px dashed #b717b0;
     			color: #b717b0;
 		}
+		&.none {
+			i {
+				border-bottom: none;
+			}
+		}
 	}
 }
 .underline {
