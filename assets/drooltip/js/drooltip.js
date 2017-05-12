@@ -47,9 +47,9 @@ Github: https://github.com/prevwong/drooltip.js/
 			}
 
 			return {
-				url,
-				json,
-				type
+				"url" : url,
+				"json" : json,
+				"type" : type
 			};
 
 
@@ -206,16 +206,13 @@ Github: https://github.com/prevwong/drooltip.js/
 
 	function getElemDimensions(element) {
 		var top  =  window.pageYOffset;
-		//element.classList.add("fake");
 		var info = {
 		  "left" : offset(element).left,
 		  "top" : offset(element).top
 		};
 
-		//console.log ( element.style.float )
 		element.classList.add("fake");
 		info["width"] = element.offsetWidth;
-		//console.log(element, info["width"])
 		info["height"] = element.offsetHeight;
 		element.classList.remove("fake");
 		return info;
@@ -227,8 +224,6 @@ Github: https://github.com/prevwong/drooltip.js/
 		    tooltipDimensions = getElemDimensions(tooltip),
 		    arrowSize = 6;
 
-		  //  console.log("top", sourceDimensions["top"])
-		//console.log("height", sourceDimensions["height"])
 		var imaginaryPositions = {
 		  "if_top_y" : sourceDimensions["top"] - tooltipDimensions["height"] - arrowSize,
 		  "if_vertical_x" : sourceDimensions["left"] + sourceDimensions["width"] / 2 - tooltipDimensions["width"] / 2,
@@ -262,7 +257,6 @@ Github: https://github.com/prevwong/drooltip.js/
 
 		if ( screenTop > imaginaryPositions["if_top_y"] || screenTop < imaginaryPositions["if_bottom_y"] ) {
 		  selector[1] +=1;
-		  //console.log(required)
 		  if ( required === "bottom" ) { selector[1] +=2;  }
 		}
 
@@ -271,17 +265,10 @@ Github: https://github.com/prevwong/drooltip.js/
 		  if ( required === "right" ) { selector[2] +=2;  }
 		} 
 
-		/**
-		if ( (imaginaryPositions["if_vertical_x"] + tooltipDimensions["width"]) > screenWidth || (required === "right" &&  (imaginaryPositions["if_vertical_x"] + tooltipDimensions["width"]) > screenWidth ) ) {
-		  selector[3] += 2;
-		  if ( required === "left" ) { selector[3] +=1; }
-		}
-		**/
 		if ( imaginaryPositions["if_left_x"] > 0 ) {
 		  selector[3] += 1;
 		  if ( required === "left" ) { selector[3] +=2; }
 		}
-		//console.log(selector)
 		return selector.indexOf(Math.max.apply(Math, selector));
 	}
 
@@ -436,7 +423,6 @@ Github: https://github.com/prevwong/drooltip.js/
 
 	function listenerAdd(data, trigger) {
 		var standardTriggers = ["hover", "click", "none"];
-		//var tooltips = Object.assign({}, publicTooltips);
 		if ( standardTriggers.indexOf(trigger) === -1 ) { 
 		    window[trigger].call(this, data);
 		    return false;
@@ -450,20 +436,6 @@ Github: https://github.com/prevwong/drooltip.js/
 				showTooltip.call(data);
 			}
 		}
-		/**
-		for ( var i in tooltips ) {
-		  publicTooltips[i]["tooltip"].classList.add("hideTooltip");
-		  if ( trigger === "hover" ) {
-		    drooltipHover(publicTooltips[i]);
-		  } else if ( trigger === "click" ) {
-		    drooltipClick(publicTooltips[i]);
-		  } else if ( trigger === "none" ) {
-		    showTooltip.call(publicTooltips[i]);
-		  }
-		}
-		**/
-		
-
 		
 	}
 
@@ -576,8 +548,8 @@ Github: https://github.com/prevwong/drooltip.js/
 
 	        if ( options["content"] !== null ) {
 	          var tooltip = createTooltip((id + "_" + i), elems[i], options);
-	          tooltips[id][i] =  { "id": id + "_" + i, "source" :  elems[i], tooltip, options };
-	          this.tooltips[i] = { "id": id + "_" + i, "source" :  elems[i], tooltip, options };
+	          tooltips[id][i] =  { "id": id + "_" + i, "source" :  elems[i], "tooltip" : tooltip, "options" : options };
+	          this.tooltips[i] = { "id": id + "_" + i, "source" :  elems[i], "tooltip" : tooltip, "options" : options };
 	        }	   
 
 	        attachTriggerEvent.call(_, this.tooltips[i])     
@@ -666,14 +638,12 @@ Github: https://github.com/prevwong/drooltip.js/
 	}
 
 	function attachTriggerEvent(data) {
-		console.log(this)
 		var source  = data["source"],
 			tooltip = data["tooltip"],
 			options =  data["options"],
 			trigger = options["trigger"];
 
 	    tooltip.classList.add( "loaded");
-	    //publicTooltips[j] = { "options" : { "animation" : options["animation"], "callback" : options["callback"], "content" : options["content"] }, source, tooltip };
 	    listenerAdd.call(this, data, trigger);
 	}
 })();
