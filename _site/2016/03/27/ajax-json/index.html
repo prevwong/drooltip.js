@@ -3,7 +3,7 @@
 	<h4>7.1 Loading non-json dynamic content via AJAX</h4>
 	<ul class="steps">
 		<li>
-			<span class="instruction"></span>
+			<span class="instruction">Via the Initialisation</span>
 <pre><code class="js">var tooltip = new Drooltip({
 	...
 	"content" : {
@@ -12,6 +12,12 @@
 	},
 	...
 });</code> </pre>
+		</li>
+		<li class="second_method">
+			<span class="instruction">or Via the title tag</span>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"myTooltip"</span> <span class="na">title=</span><span class="s">":ajax[script.php]:"</span><span class="nt">&gt;</span> I am some random text <span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
 		</li>
 	</ul>
 </ul>
@@ -30,6 +36,12 @@
 	...
 });</code> </pre>
 		</li>
+		<li class="second_method">
+			<span class="instruction">or Via the title tag</span>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"myTooltip"</span> <span class="na">title=</span><span class="s">":ajax[https://mypage, myJSONVariable]:"</span><span class="nt">&gt;</span> I am some random text <span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+		</li>
 	</ul>
 <ul class="subsection">
 	<h4>7.2.1. Using a callback function to load JSON data</h4>
@@ -41,13 +53,19 @@
 	...
 	"content" : {
 	"type" : "jsonp", // or ajax
-	"url" : "link.com/JSON",
+	"url" : "http://link.com/JSON",
 	"json" : "myJSONFunction()" // just add "()" for function
 	},
 	...
 });
 </code>
 </pre>
+		</li>
+		<li class="second_method">
+			<span class="instruction">... or the title tag</span>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"myTooltip"</span> <span class="na">title=</span><span class="s">":jsonp[http://link.com/JSON, myJSONFunction()]:"</span><span class="nt">&gt;</span> I am some random text <span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
 		</li>
 		<li>
 			<span class="instruction">2. Then define the respective function which accepts the <span class="tag">data</span> object</span>

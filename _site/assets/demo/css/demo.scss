@@ -109,6 +109,18 @@ h1,h2,h3 { font-family: Source Sans Pro, serif; }
 }
 
 
+div#social_buttons {
+    padding: 20px 50px;
+    .fb-share-button, .twitter-share-button {
+    	float:left;
+    }
+    .twitter-share-button { 
+    	margin-top:5px;
+    	margin-left:12px;
+    }
+}
+
+
 a.button {
     float: left;
     width: 100%;
@@ -315,6 +327,11 @@ ul.steps {
 		float:left;
 		width:100%;
 		margin-bottom:20px;
+		&.second_method {
+			padding-left:20px;
+			border-left:10px solid #e0e0e0;
+			margin-bottom:50px;
+		}
 	}
 	.instruction {
 		color: #5d6869;
@@ -405,6 +422,11 @@ ul.param_specification {
 		i {
 			    border-bottom: 1px dashed #b717b0;
     			color: #b717b0;
+		}
+		&.none {
+			i {
+				border-bottom: none;
+			}
 		}
 	}
 }
@@ -537,3 +559,12 @@ small.note {
 		}
 	}
 }
+
+.context { 
+	    float: left;
+    width: 100%;
+    background: #f5f5f5;
+    padding: 15px 20px;
+    margin-top: 20px;
+}
+

@@ -9,19 +9,18 @@
   <title>Drooltip.js</title>
   <meta name="description" content="Minimalistic and Powerful native-js Tooltips">
 
-  <link rel="stylesheet" href="/assets/main.css">
   <link rel="canonical" href="http://localhost:4000/">
   <link rel="alternate" type="application/rss+xml" title="Drooltip.js" href="/feed.xml">
 
-  <link rel="stylesheet" href="assets/drooltip/css/drooltip.css"/>
-  <link rel="stylesheet" href="assets/demo/css/foundation.css"/>
-  <link rel="stylesheet" href="assets/demo/css/demo.css"/>
-  <link rel="stylesheet" href="assets/demo/css/font-awesome.min.css"/>
-  <link rel="stylesheet" href="assets/demo/css/solarized-dark.css"/>
+  <link rel="stylesheet" href="/assets/drooltip/css/drooltip.css"/>
+  <link rel="stylesheet" href="/assets/demo/css/foundation.css"/>
+  <link rel="stylesheet" href="/assets/demo/css/demo.css"/>
+  <link rel="stylesheet" href="/assets/demo/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="/assets/demo/css/solarized-dark.css"/>
   <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600" rel="stylesheet">
 
-  <script type="text/javascript" src="assets/demo/js/highlight.pack.js"></script>
+  <script type="text/javascript" src="/assets/demo/js/highlight.pack.js"></script>
   
   
   <script>
@@ -41,6 +40,14 @@
 
 
   <body>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=819493891533785";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
    <div class = 'row'>
    <div id = "wrapper">
     
@@ -55,7 +62,7 @@
             </ul>
         </div>
         <span id = "logo">
-            <h2>Drooltip.js<span>v1.0.0 &beta;</span></h2>
+            <h2>Drooltip.js<span>v1.0.1</span></h2>
             <span class = "author">Developed by <i class="defaultTooltip" title="#author_links" data-options="trigger:hover;position:bottom;">Prev Wong</i></span>
         </span>
         <ul>    
@@ -77,7 +84,7 @@
             
                 <li><a class="navigationalLinks" href="#ajax/json">Ajax/Json</a></li>
             
-                <li><a class="navigationalLinks" href="#useful functions">Useful functions</a></li>
+                <li><a class="navigationalLinks" href="#useful api">Useful API</a></li>
             
             </div>
 
@@ -99,26 +106,20 @@
                 
                 <option value="ajax/json">Ajax/Json</option>
                 
-                <option value="useful functions">Useful functions</option>
+                <option value="useful api">Useful API</option>
                 
             </select>
             </div>
              <div style="float:left;width:100%" id = "social_buttons">
-
-    <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=556703841029801";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-    </div>
+                <div class="fb-share-button" data-href="https://prevwong.github.io/drooltip.js/" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fprevwong.github.io%2Fdrooltip.js%2F&amp;src=sdkpreparse">Share</a></div>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+             </div>
     </div>
         </ul>
     </nav>
      
 </sidebar>
+
     <main style="padding:0;" class = "large-8 medium-10 small-12 large-uncentered medium-centered small-8 columns" >
       <div id = "content">
         
@@ -149,7 +150,7 @@
 	<li data-options="background:#fff;color:#2175ff;trigger:overviewCustom; " title="Hey there" class="defaultTooltip columns medium-4"><span><strong>Custom triggers</strong></span><i class="countdown"></i></li>
 	<li title="#element" data-options="position:left" class="defaultTooltip columns medium-4"><span><strong>HTML elements</strong></span></li>
 	<li title=":jsonp[https://freegeoip.net/json/imprev.co,country_name]:" data-options="position:left;" class="defaultTooltip columns medium-4"><span><strong>AJAX/Jsonp</strong></span><i class="countdown"></i></li>
-	<li data-options="position:right" title="I can position myself pretty well" class="defaultTooltip columns medium-4"><span><strong>Smart positioning</strong></span></li>
+	<li data-options="position:right" title="I can position myself pretty well. Go &lt;a style='color:#fff;font-weight:bold;text-decoration:underline' href='#positioning'&gt;here&lt;/a&gt; to see just what I mean." class="defaultTooltip columns medium-4"><span><strong>Smart positioning</strong></span></li>
 	<li data-options="animation:material;" title="This is a custom animation" class="defaultTooltip columns medium-4"><span><strong>Custom animations</strong></span></li>
 </ul>
 
@@ -161,7 +162,7 @@
    <li>
        <span class="instruction">Include Drooltip.js in your project</span>
        
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"/path/to/drooltip.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"/path/to/build/drooltip.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
 
    </li>
     <li>
@@ -328,16 +329,21 @@
            <span class="instruction">
            2. Create the relevant function; There will be 3 parameters that'll be passed to your function: 
            <ul class="param_specification">
-                <li><span>fn</span>Str <i>"animate"</i> |  <i>"deanimate"</i></li>
+                <li class="none"><span>fn</span>Str <i>"animate"</i> |  <i>"deanimate"</i></li>
                 <li><span>data</span>Object {<i class="params" title="Unique tooltip id">id</i>, <i class="params" title="Target DOM element">source</i>, <i class="params" title="Tooltip DOM element">tooltip</i>, <i class="params" title="Options associated with tooltip">options</i>}</li>
                 <li><span>callback</span></li>
+                <div class="context">
+                  <span>Context:</span>
+                  <li><span>this</span>Object <i class="params" title="The object created from the initialisation; This gives you access to its public function">instance</i></li>
+                </div>
            </ul>
            </span>
           <pre class="js">
           <code>function myCustomAnimation(fn, data, callback){
+    var obj = this; // context =&gt; Drooltip Instance
     // There should be 2 paths basically
     if ( fn === "animate" ) {
-    tooltip.hideAllTooltips();
+    obj.hideAllTooltips();
     setTimeout(function(){
     data["tooltip"].classList.add("myCustomCSSAnimation")
     ... do some other cool stuff here ...
@@ -384,14 +390,19 @@
        2. Create the relevant function; The data object will be passed to your function
        <ul class = "param_specification">
             <li><span>data</span>Object {<i class="params" title="Unique tooltip id">id</i>, <i class="params" title="Target DOM element">source</i>, <i class="params" title="Tooltip DOM element">tooltip</i>, <i class="params" title="Options associated with tooltip">options</i>}</li>
+            <div class = "context">
+                <span>Context:</span>
+                <li><span>this</span>Object <i class="params" title="The object created from the initialisation; This gives you access to its public function">instance</i></li>
+              </div>
        </ul>
      </span>
       <pre class="js">
         <code>
     function myCustomTrigger(data){
+      var obj = this;
       var tooltipDom = data["tooltip"]
       var sourceDom = data["source"]
-      tooltip.hideTooltip(tooltipDom) // -> instance.hideTooltip()
+      obj.hideTooltip(tooltipDom) // -> instance.hideTooltip()
       var timeout, exit = 0
       window.addEventListener("mouseover", function(e){   
         if ( data["source"].contains(e.target) || data["tooltip"].contains(e.target) ){
@@ -399,7 +410,7 @@
         } else {
           exit = setTimeout(function(){
             if ( data["tooltip"].classList.contains("open") ) {
-              tooltip.deanimateTooltip(data)  // -> instance.deanimateTooltip()
+              obj.deanimateTooltip(data)  // -> instance.deanimateTooltip()
             }
           }, 1000);
         }
@@ -408,7 +419,7 @@
       data["source"].addEventListener("mouseenter", function(e){   
         sourceDom.querySelector(".countdown").innerHTML = "Wait for 1 second";
         timeout = setTimeout(function(){
-          tooltip.animateTooltip(data) // -> instance.animateTooltip()
+          obj.animateTooltip(data) // -> instance.animateTooltip()
           sourceDom.querySelector(".countdown").innerHTML = "Boom!";
         }, 1000);
       });
@@ -429,7 +440,7 @@
 	<h4>7.1 Loading non-json dynamic content via AJAX</h4>
 	<ul class="steps">
 		<li>
-			<span class="instruction"></span>
+			<span class="instruction">Via the Initialisation</span>
 <pre><code class="js">var tooltip = new Drooltip({
 	...
 	"content" : {
@@ -438,6 +449,12 @@
 	},
 	...
 });</code> </pre>
+		</li>
+		<li class="second_method">
+			<span class="instruction">or Via the title tag</span>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"myTooltip"</span> <span class="na">title=</span><span class="s">":ajax[script.php]:"</span><span class="nt">&gt;</span> I am some random text <span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
 		</li>
 	</ul>
 </ul>
@@ -456,6 +473,12 @@
 	...
 });</code> </pre>
 		</li>
+		<li class="second_method">
+			<span class="instruction">or Via the title tag</span>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"myTooltip"</span> <span class="na">title=</span><span class="s">":ajax[https://mypage, myJSONVariable]:"</span><span class="nt">&gt;</span> I am some random text <span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+		</li>
 	</ul>
 <ul class="subsection">
 	<h4>7.2.1. Using a callback function to load JSON data</h4>
@@ -467,13 +490,19 @@
 	...
 	"content" : {
 	"type" : "jsonp", // or ajax
-	"url" : "link.com/JSON",
+	"url" : "http://link.com/JSON",
 	"json" : "myJSONFunction()" // just add "()" for function
 	},
 	...
 });
 </code>
 </pre>
+		</li>
+		<li class="second_method">
+			<span class="instruction">... or the title tag</span>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"myTooltip"</span> <span class="na">title=</span><span class="s">":jsonp[http://link.com/JSON, myJSONFunction()]:"</span><span class="nt">&gt;</span> I am some random text <span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
 		</li>
 		<li>
 			<span class="instruction">2. Then define the respective function which accepts the <span class="tag">data</span> object</span>
@@ -493,8 +522,8 @@
 
   </div>
 
-  <div id = "useful functions" class = "sections">
-    <h2 class = 'title'>8. Useful functions</h2>
+  <div id = "useful api" class = "sections">
+    <h2 class = 'title'>8. Useful API</h2>
     <p>The following are some functions you may find useful especially when creating custom animations/triggers</p>
 
 <table>
@@ -592,6 +621,12 @@
     		<span class="instruction">An example on how to use the function</span>
     		<pre class="js"><code>var tooltip = new Drooltip({ ... })
 tooltip.animateAllTooltips();
+
+// or when using in custom triggers/animations
+function customAnimation(data){
+    var obj = this;
+    obj.animateAllTooltips();
+}
 </code></pre>    
 		</li>
 	</ul>
@@ -624,7 +659,7 @@ tooltip.animateAllTooltips();
     <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 </form>
 
-<script type="text/javascript" src="assets/drooltip/js/drooltip.js"></script>
+<script type="text/javascript" src="/assets/drooltip/js/drooltip.js"></script>
 
 <script>hljs.initHighlightingOnLoad();</script>
 <script type="text/javascript">
@@ -669,49 +704,49 @@ var positioningTooltips = new Drooltip({
 
 
 function overviewCustom(data){
-  var  _ = this;
-var tooltipDom = data["tooltip"]
-var sourceDom = data["source"]
-_.hideTooltip(tooltipDom)
+  var _ = this;
+  var tooltipDom = data["tooltip"]
+  var sourceDom = data["source"]
+  _.hideTooltip(tooltipDom)
 
 
 
-var timeout, exit = 0
-window.addEventListener("mouseover", function(e){   
-    if ( data["source"].contains(e.target) || data["tooltip"].contains(e.target) ){
-        clearTimeout(exit)
-    } else {
-        exit = setTimeout(function(){
+  var timeout, exit = 0
+  window.addEventListener("mouseover", function(e){   
+      if ( data["source"].contains(e.target) || data["tooltip"].contains(e.target) ){
+          clearTimeout(exit)
+      } else {
+          exit = setTimeout(function(){
 
-            if ( data["tooltip"].classList.contains("open") ) {
-                
-                _.deanimateTooltip(data)
-            }
-        }, 200);
-    }
-})
+              if ( data["tooltip"].classList.contains("open") ) {
+                  
+                  _.deanimateTooltip(data)
+              }
+          }, 200);
+      }
+  })
 
-data["source"].addEventListener("mouseenter", function(e){   
-      sourceDom.querySelector(".countdown").innerHTML = "Wait for 1 second";
-      timeout = setTimeout(function(){
-        _.animateTooltip(data)
-        sourceDom.querySelector(".countdown").innerHTML = "Boom!";
-      }, 1000);
-});
+  data["source"].addEventListener("mouseenter", function(e){   
+        sourceDom.querySelector(".countdown").innerHTML = "Wait for 1 second";
+        timeout = setTimeout(function(){
+          _.animateTooltip(data)
+          sourceDom.querySelector(".countdown").innerHTML = "Boom!";
+        }, 1000);
+  });
 
-data["source"].addEventListener("mouseleave", function(e){   
-    sourceDom.querySelector(".countdown").innerHTML = "";
-      clearTimeout(timeout)
-});
+  data["source"].addEventListener("mouseleave", function(e){   
+      sourceDom.querySelector(".countdown").innerHTML = "";
+        clearTimeout(timeout)
+  });
 }
 
 
 var positionScreenTips = function(){
 	setTimeout(function(){
-	for ( var i in positioningTooltips["tooltips"] ) {
-  positioningTooltips.updatePosition(positioningTooltips["tooltips"][i])
-	}
-	positionScreenTips()
+  	for ( var i in positioningTooltips["tooltips"] ) {
+  	   positioningTooltips.updatePosition(positioningTooltips["tooltips"][i])
+  	}
+  	positionScreenTips()
 	}, 10)
 }
 

@@ -6,7 +6,7 @@ index: 2
 <ul class="steps">
    <li>
        <span class="instruction">Include Drooltip.js in your project</span>
-       {% highlight html %}<script type="text/javascript" src="/path/to/drooltip.js"></script>{% endhighlight %}
+       {% highlight html %}<script type="text/javascript" src="/path/to/build/drooltip.js"></script>{% endhighlight %}
    </li>
     <li>
        <span class="instruction">... and the CSS file too</span>
