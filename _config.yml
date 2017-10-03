@@ -1,6 +1,6 @@
 # Name of your blog (this will show up at the top of your page and in the RSS feed)
 title: Drooltip.js
-version: "1.0.1"
+version: "1.0.2"
 # Short description (goes below the title; it will also be used in the RSS feed)
 description: Minimalistic and Powerful native-js Tooltips
 
