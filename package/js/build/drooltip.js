@@ -79,7 +79,7 @@ Documentation: https://prevwong.github.io/drooltip.js/
 Github: https://github.com/prevwong/drooltip.js/
 **/
 
-undefined.Drooltip = function () {
+var Drooltip = function Drooltip() {
 	this.tooltips = {};
 
 	var defaults = {

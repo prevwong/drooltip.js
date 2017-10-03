@@ -8,7 +8,7 @@ Github: https://github.com/prevwong/drooltip.js/
 
 
 
-	this.Drooltip = function() {
+	var Drooltip = function() {
 		this.tooltips = { };
 
 	    var defaults = {
