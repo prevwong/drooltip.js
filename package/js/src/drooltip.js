@@ -6,7 +6,7 @@ Documentation: https://prevwong.github.io/drooltip.js/
 Github: https://github.com/prevwong/drooltip.js/
 **/
 
-(function() {
+
 
 	this.Drooltip = function() {
 		this.tooltips = { };
@@ -661,7 +661,7 @@ Github: https://github.com/prevwong/drooltip.js/
 	    tooltip.classList.add( "loaded");
 	    listenerAdd.call(this, data, trigger);
 	}
-})();
+
 
 window.onload = function() {
 
