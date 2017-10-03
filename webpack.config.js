@@ -1,9 +1,8 @@
 module.exports = {
-  entry: './package/js/src/drooltip.js',
+  entry: './package/js/src/drooltip.src.js',
   output: {
     filename: './package/js/build/drooltip.js',
   },
- devtool: 'source-map',
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },

@@ -7,7 +7,7 @@
 (/\___/    |_/\__/ \__/ |__/|_/|_/|__/o|/ \/ 
                                  /|   /|     
                                  \|   \|  
-Drooltip.js 	v1.00
+Drooltip.js 	v1.0.2
 github.com/prevwong/drooltip.js
 Prev Wong	@prevwong 	imprev.co
 </code>
@@ -41,6 +41,7 @@ Documentation and Demos are [here](https://prevwong.github.io/drooltip.js/)
 
 Release | Description
 ------------ | -------------
+v1.0.2 | Support for IE-11/non-ES6 compliant browsers
 v1.0.1 | Fixed bugs and issues; Stable Release basically
 v1.0.0&beta; | Initial beta release
 

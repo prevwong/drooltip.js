@@ -4,11 +4,12 @@ Drooltip.js
 Developed by: Prev Wong	(imprev.co)
 Documentation: https://prevwong.github.io/drooltip.js/
 Github: https://github.com/prevwong/drooltip.js/
+License: MIT (https://raw.githubusercontent.com/prevwong/drooltip.js/master/LICENSE)
 **/
 
 
-
-	var Drooltip = function() {
+(function() {
+	window["Drooltip"] = function() {
 		this.tooltips = { };
 
 	    var defaults = {
@@ -144,6 +145,7 @@ Github: https://github.com/prevwong/drooltip.js/
 
 			} else if ( type === "jsonp" ){
 			  jsonp(url, function(jsObject){
+			  	var content;
 			   if (json.slice(-2) === "()" ){
 	          		content = window[json.replace("()", "")](jsObject)
 	          	} else {
@@ -164,7 +166,6 @@ Github: https://github.com/prevwong/drooltip.js/
       	  	element.querySelector(".content").innerHTML = content;
       	  	element.querySelector(".content").classList.remove("showDynamic")
       	  	getPosition(element, source, position, {"x":0, "y": 0});
-          	loaded = true;
       	  }, 200)
           requests[id]["loaded"] = true;
   	   }, 400)
@@ -540,7 +541,7 @@ Github: https://github.com/prevwong/drooltip.js/
 	    var _ = this
 	    tooltips[id] = {};
 	    this.tooltips = {};
-	    for (i = 0; i < elems.length; ++i) {
+	    for (var i = 0; i < elems.length; ++i) {
 	        elems[i].setAttribute("data-id", i);
 	        var options = Object.assign({}, this.options),
 	            privateOptions = elems[i].getAttribute("data-options"),
@@ -661,6 +662,7 @@ Github: https://github.com/prevwong/drooltip.js/
 	    tooltip.classList.add( "loaded");
 	    listenerAdd.call(this, data, trigger);
 	}
+})();
 
 
 window.onload = function() {
