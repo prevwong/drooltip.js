@@ -23,5 +23,5 @@ engines:
     enabled: true
 ratings:
   paths:
-  - "package/js/"
-exclude_paths: ["demo/"]
+  - "package/js/src/"
+exclude_paths: ["demo/", "package/js/build/"]
