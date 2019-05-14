@@ -482,6 +482,14 @@ License: MIT (https://raw.githubusercontent.com/prevwong/drooltip.js/master/LICE
 		    });
 		};
 		mouseover(data);
+		
+		window.addEventListener("touchstart", function(e){   
+		    if (data["source"].contains(e.target) || data["tooltip"].contains(e.target)){
+		      showTooltip.call(data);
+		    } else {
+		      hideTooltip.call(data);
+		    }
+		});
 	}
 
 	function drooltipClick(data){
